@@ -3,26 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainPageFragment"
-    tools:ignore="ExtraText">
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/mainPageFragment"
+        android:id="@+id/mainFragment"
         android:name="com.example.tinkoffproject.presentation.MainPageFragment"
         android:label="MainPageFragment"
         tools:layout="@layout/fragment_mainpage"/>
     <fragment
-        android:id="@+id/statisticsFragment"
+        android:id="@+id/statisticFragment"
         android:name="com.example.tinkoffproject.presentation.StatisticsFragment"
         android:label="StatisticsFragment"
         tools:layout="@layout/fragment_statistics"/>
     <fragment
-        android:id="@+id/dietFragment2"
+        android:id="@+id/dietFragment"
         android:name="com.example.tinkoffproject.presentation.DietFragment"
         android:label="DietFragment"
         tools:layout="@layout/fragment_diet"/>
     <fragment
-        android:id="@+id/settingsFragment2"
+        android:id="@+id/settingsFragment"
         android:name="com.example.tinkoffproject.presentation.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings"/>
