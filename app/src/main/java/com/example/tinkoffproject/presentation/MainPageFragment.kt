@@ -28,10 +28,10 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentMainpageBinding.bind(view)
         binding?.run {
-//            val water=tvDrunkResult.text.toString()
-//            val water2=water.toDouble()
             btnWater.setOnClickListener{
-                waterSum(0.25)
+                val water=tvDrunkResult.text.toString()
+                val water2=water.toDouble()
+                waterSum(water2)
             }
         }
     }
@@ -39,7 +39,7 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
     private fun waterSum(waterNubmer:Double) {
         binding?.run {
             val water2=waterNubmer+0.25
-            tvDrunkResult.text="$water2 л"
+            tvDrunkResult.text="$water2"
         }
     }
 }

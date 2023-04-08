@@ -153,7 +153,7 @@
         android:textColor="@color/black"
         android:layout_marginStart="10dp"
         android:textSize="18sp"
-        android:text="0 мл"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="@+id/tv_drunk"
         app:layout_constraintStart_toEndOf="@+id/tv_drunk"
         app:layout_constraintTop_toTopOf="@+id/tv_drunk" />
