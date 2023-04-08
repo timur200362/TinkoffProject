@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TinkoffProject</string>
+    <string name="app_name2">Lifestyle</string>
+    <string name="squirrels">Белки</string>
+    <string name="fats">Жиры</string>
+    <string name="carbohydrates">Углеводы</string>
+    <string name="remained">Осталось(ккал)</string>
+    <string name="water">Воды выпито:</string>
+    <string name="breakfast">Завтрак</string>
+    <string name="dinner1">Обед</string>
+    <string name="dinner2">Ужин</string>
+    <string name="snacks">Перекусы</string>
 </resources>
