@@ -1,6 +1,5 @@
 package com.example.tinkoffproject.presentation
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +32,7 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
                 val water2=water.toDouble()
                 waterSum(water2)
             }
+            addBreakfast()
         }
     }
 
@@ -41,5 +41,19 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
             val water2=waterNubmer+0.25
             tvDrunkResult.text="$water2"
         }
+    }
+
+    private fun addBreakfast(){
+        binding?.run {
+            ivAddBreakfast.setOnClickListener{
+                loadBreakfastPage()
+            }
+        }
+    }
+    private fun loadBreakfastPage(){
+        val bundle=Bundle()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.container,BreakfastSearchFragment.getInstance(bundle),BreakfastSearchFragment.BreakfastSearchFragment_TAG)
+            .commit()
     }
 }
