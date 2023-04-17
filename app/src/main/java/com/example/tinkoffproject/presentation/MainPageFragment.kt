@@ -46,14 +46,21 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
     private fun addBreakfast(){
         binding?.run {
             ivAddBreakfast.setOnClickListener{
-                loadBreakfastPage()
+                val bundle=Bundle()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container,BreakfastSearchFragment.getInstance(bundle),BreakfastSearchFragment.BreakfastSearchFragment_TAG)
+                    .addToBackStack(MainPageFragment_TAG)
+                    .commit()
             }
         }
     }
-    private fun loadBreakfastPage(){
-        val bundle=Bundle()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.container,BreakfastSearchFragment.getInstance(bundle),BreakfastSearchFragment.BreakfastSearchFragment_TAG)
-            .commit()
+
+    companion object {
+        const val MainPageFragment_TAG="MainPageFragment_TAG"
+        fun getInstance(bundle: Bundle?):MainPageFragment {
+            val mainPageFragment=MainPageFragment()
+            mainPageFragment.arguments=bundle
+            return mainPageFragment
+        }
     }
 }
