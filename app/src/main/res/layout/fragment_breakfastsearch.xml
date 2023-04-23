@@ -120,7 +120,6 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_eatenAllBreakfast"
         app:layout_constraintStart_toStartOf="@+id/tv_eatenAllBreakfast" />
 
-
     <ImageButton
         android:id="@+id/btn_food"
         android:layout_width="380dp"
@@ -130,13 +129,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
-
     <TextView
         android:id="@+id/tv_foodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:text="test"
         android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_food"
+        app:layout_constraintEnd_toEndOf="@+id/btn_food"
+        app:layout_constraintStart_toStartOf="@+id/btn_food"
+        app:layout_constraintTop_toTopOf="@+id/btn_food" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/btn_food"
         app:layout_constraintEnd_toEndOf="@+id/btn_food"
         app:layout_constraintStart_toStartOf="@+id/btn_food"

@@ -33,6 +33,9 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
                 waterSum(water2)
             }
             addBreakfast()
+            addDinner()
+            addNightDinner()
+            addSnacks()
         }
     }
 
@@ -49,6 +52,42 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
                 val bundle=Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.container,BreakfastSearchFragment.getInstance(bundle),BreakfastSearchFragment.BreakfastSearchFragment_TAG)
+                    .addToBackStack(MainPageFragment_TAG)
+                    .commit()
+            }
+        }
+    }
+
+    private fun addDinner(){
+        binding?.run {
+            ivAddDinnerDay.setOnClickListener{
+                val bundle=Bundle()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container,DinnerSearchFragment.getInstance(bundle),DinnerSearchFragment.DinnerSearchFragment_TAG)
+                    .addToBackStack(MainPageFragment_TAG)
+                    .commit()
+            }
+        }
+    }
+
+    private fun addNightDinner(){
+        binding?.run {
+            ivAddDinnerEvening.setOnClickListener{
+                val bundle=Bundle()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container,NightDinnerSearchFragment.getInstance(bundle),NightDinnerSearchFragment.NightDinnerSearchFragment_TAG)
+                    .addToBackStack(MainPageFragment_TAG)
+                    .commit()
+            }
+        }
+    }
+
+    private fun addSnacks(){
+        binding?.run {
+            ivAddSnack.setOnClickListener{
+                val bundle=Bundle()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container,SnacksSearchFragment.getInstance(bundle),SnacksSearchFragment.SnacksSearchFragment_TAG)
                     .addToBackStack(MainPageFragment_TAG)
                     .commit()
             }
