@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation
+package com.example.tinkoffproject.presentation.SecondPage
 
 import android.os.Bundle
 import android.view.LayoutInflater

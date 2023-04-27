@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.tinkoffproject.presentation.MainPageFragment"
+        android:name="com.example.tinkoffproject.presentation.FirstPage.MainPageFragment"
         android:label="MainPageFragment"
         tools:layout="@layout/fragment_mainpage"/>
     <fragment
         android:id="@+id/statisticFragment"
-        android:name="com.example.tinkoffproject.presentation.StatisticsFragment"
+        android:name="com.example.tinkoffproject.presentation.SecondPage.StatisticsFragment"
         android:label="StatisticsFragment"
         tools:layout="@layout/fragment_statistics"/>
     <fragment
         android:id="@+id/dietFragment"
-        android:name="com.example.tinkoffproject.presentation.DietFragment"
+        android:name="com.example.tinkoffproject.presentation.ThirdPage.DietFragment"
         android:label="DietFragment"
         tools:layout="@layout/fragment_diet"/>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.tinkoffproject.presentation.SettingsFragment"
+        android:name="com.example.tinkoffproject.presentation.FourthPage.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings"/>
 </navigation>

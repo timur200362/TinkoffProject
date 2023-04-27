@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation
+package com.example.tinkoffproject.presentation.FirstPage
 
 import android.os.Bundle
 import android.view.View
@@ -18,8 +18,8 @@ class SnacksSearchFragment:Fragment(R.layout.fragment_snackssearch) {
 
     companion object {
         const val SnacksSearchFragment_TAG="SnacksSearchFragment_TAG"
-        fun getInstance(bundle: Bundle?):SnacksSearchFragment {
-            val snackDinnerSearchFragment=SnacksSearchFragment()
+        fun getInstance(bundle: Bundle?): SnacksSearchFragment {
+            val snackDinnerSearchFragment= SnacksSearchFragment()
             snackDinnerSearchFragment.arguments=bundle
             return snackDinnerSearchFragment
         }

@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation
+package com.example.tinkoffproject.presentation.FirstPage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,7 +51,10 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
             ivAddBreakfast.setOnClickListener{
                 val bundle=Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container,BreakfastSearchFragment.getInstance(bundle),BreakfastSearchFragment.BreakfastSearchFragment_TAG)
+                    .replace(R.id.container,
+                        BreakfastSearchFragment.getInstance(bundle),
+                        BreakfastSearchFragment.BreakfastSearchFragment_TAG
+                    )
                     .addToBackStack(MainPageFragment_TAG)
                     .commit()
             }
@@ -63,7 +66,10 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
             ivAddDinnerDay.setOnClickListener{
                 val bundle=Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container,DinnerSearchFragment.getInstance(bundle),DinnerSearchFragment.DinnerSearchFragment_TAG)
+                    .replace(R.id.container,
+                        DinnerSearchFragment.getInstance(bundle),
+                        DinnerSearchFragment.DinnerSearchFragment_TAG
+                    )
                     .addToBackStack(MainPageFragment_TAG)
                     .commit()
             }
@@ -75,7 +81,10 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
             ivAddDinnerEvening.setOnClickListener{
                 val bundle=Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container,NightDinnerSearchFragment.getInstance(bundle),NightDinnerSearchFragment.NightDinnerSearchFragment_TAG)
+                    .replace(R.id.container,
+                        NightDinnerSearchFragment.getInstance(bundle),
+                        NightDinnerSearchFragment.NightDinnerSearchFragment_TAG
+                    )
                     .addToBackStack(MainPageFragment_TAG)
                     .commit()
             }
@@ -87,7 +96,10 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
             ivAddSnack.setOnClickListener{
                 val bundle=Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container,SnacksSearchFragment.getInstance(bundle),SnacksSearchFragment.SnacksSearchFragment_TAG)
+                    .replace(R.id.container,
+                        SnacksSearchFragment.getInstance(bundle),
+                        SnacksSearchFragment.SnacksSearchFragment_TAG
+                    )
                     .addToBackStack(MainPageFragment_TAG)
                     .commit()
             }
@@ -96,8 +108,8 @@ class MainPageFragment:Fragment(R.layout.fragment_mainpage) {
 
     companion object {
         const val MainPageFragment_TAG="MainPageFragment_TAG"
-        fun getInstance(bundle: Bundle?):MainPageFragment {
-            val mainPageFragment=MainPageFragment()
+        fun getInstance(bundle: Bundle?): MainPageFragment {
+            val mainPageFragment= MainPageFragment()
             mainPageFragment.arguments=bundle
             return mainPageFragment
         }
