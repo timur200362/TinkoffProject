@@ -31,13 +31,17 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     private fun loadFood(query: String){
         lifecycleScope.launch {
             api.getFood(query).also {
-                it.products?.get(0)?.let { it1 -> it1.id?.let { it2 -> showName(it2) } }
+                var idStr=""
+                it.products?.forEach{
+                    idStr+="${it?.id} "
+                }
+                binding?.tvFoodName?.text=idStr
             }
         }
     }
-    private fun showName(name:Int){
+    private fun showName(id:Int){
         binding?.tvFoodName?.run {
-            text="$name"
+            text="$id"
         }
     }
 //    private fun showLoading(isShow:Boolean){
