@@ -2,6 +2,7 @@ package com.example.tinkoffproject.presentation.FirstPage
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -21,29 +22,53 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
         arguments?.getString("foodName")?.let {
         }
         binding?.run{
-            etFood.addTextChangedListener{
-                loadFood(etFood.text.toString())
+            etFood.setOnEditorActionListener { v, actionId, event ->
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    loadFood(getId(etFood.text.toString()))
+                    true
+                } else {
+                    false
+                }
             }
         }
     }
 
 
-    private fun loadFood(query: String){
+    private fun loadFood(id: Int){
+        lifecycleScope.launch {
+            api.getFoodInfo(id).also {
+                binding?.tvFoodName?.text="${it.title}"
+            }
+        }
+    }
+    private fun getId(query:String):Int{
+        var idGlobal=0
         lifecycleScope.launch {
             api.getFood(query).also {
-                var idStr=""
-                it.products?.forEach{
-                    idStr+="${it?.id} "
+                var idStr = it.products?.get(0)?.id
+                if (idStr != null) {
+                    idGlobal=idStr
                 }
-                binding?.tvFoodName?.text=idStr
             }
         }
+        return idGlobal
     }
-    private fun showName(id:Int){
-        binding?.tvFoodName?.run {
-            text="$id"
-        }
-    }
+//    private fun loadFood(query: String){
+//        lifecycleScope.launch {
+//            api.getFood(query).also {
+//                var idStr=""
+//                it.products?.forEach{
+//                    idStr+="${it?.id} "
+//                }
+//                binding?.tvFoodName?.text=idStr
+//            }
+//        }
+//    }
+//    private fun showName(id:Int){
+//        binding?.tvFoodName?.run {
+//            text="$id"
+//        }
+//    }
 //    private fun showLoading(isShow:Boolean){
 //        binding?.progress?.isVisible=true
 //    }
