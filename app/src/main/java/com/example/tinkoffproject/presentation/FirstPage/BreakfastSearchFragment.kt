@@ -10,11 +10,14 @@ import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.DataContainer
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     private var binding:FragmentBreakfastsearchBinding?=null
-        private val api = DataContainer.foodApi
+    private val api = DataContainer.foodApi
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,7 +27,7 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
         binding?.run{
             etFood.setOnEditorActionListener { v, actionId, event ->
                 if(actionId == EditorInfo.IME_ACTION_SEARCH){
-                    loadFood(getId(etFood.text.toString()))
+                    loadFood(etFood.text.toString())
                     true
                 } else {
                     false
@@ -32,26 +35,17 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
             }
         }
     }
-
-
-    private fun loadFood(id: Int){
-        lifecycleScope.launch {
-            api.getFoodInfo(id).also {
-                binding?.tvFoodName?.text="${it.title}"
-            }
-        }
-    }
-    private fun getId(query:String):Int{
-        var idGlobal=0
+    private fun loadFood(query: String){
         lifecycleScope.launch {
             api.getFood(query).also {
-                var idStr = it.products?.get(0)?.id
+                val idStr = it.products?.get(0)?.id
                 if (idStr != null) {
-                    idGlobal=idStr
+                    api.getFoodInfo(idStr).also {
+                        binding?.tvFoodName?.text="${it.title}"
+                    }
                 }
             }
         }
-        return idGlobal
     }
 //    private fun loadFood(query: String){
 //        lifecycleScope.launch {
