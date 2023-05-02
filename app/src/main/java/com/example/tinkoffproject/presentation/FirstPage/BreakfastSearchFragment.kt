@@ -38,34 +38,23 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     private fun loadFood(query: String){
         lifecycleScope.launch {
             api.getFood(query).also {
-                val idStr = it.products?.get(0)?.id
-                if (idStr != null) {
+                showLoading(true)
+                var idStr = 0
+                var nameStr = ""
+                it.products?.forEach{
+                    idStr = it?.id!!
                     api.getFoodInfo(idStr).also {
-                        binding?.tvFoodName?.text="${it.title}"
+                        nameStr+="${it.title} "
                     }
                 }
+                binding?.tvFoodName?.text="${nameStr}"
+                showLoading(false)
             }
         }
     }
-//    private fun loadFood(query: String){
-//        lifecycleScope.launch {
-//            api.getFood(query).also {
-//                var idStr=""
-//                it.products?.forEach{
-//                    idStr+="${it?.id} "
-//                }
-//                binding?.tvFoodName?.text=idStr
-//            }
-//        }
-//    }
-//    private fun showName(id:Int){
-//        binding?.tvFoodName?.run {
-//            text="$id"
-//        }
-//    }
-//    private fun showLoading(isShow:Boolean){
-//        binding?.progress?.isVisible=true
-//    }
+    private fun showLoading(isShow:Boolean){
+        binding?.progress?.isVisible = isShow
+    }
 
     companion object {
         const val BreakfastSearchFragment_TAG="BreakfastSearchFragment_TAG"
