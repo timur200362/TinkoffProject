@@ -4,19 +4,20 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.DataContainer
+import com.example.tinkoffproject.data.FoodRepository
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import kotlinx.coroutines.Dispatchers
+import com.example.tinkoffproject.presentation.FirstPage.Model.FoodAdapter
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     private var binding:FragmentBreakfastsearchBinding?=null
     private val api = DataContainer.foodApi
+    private var adapter:FoodAdapter?=null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,8 +34,18 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
                     false
                 }
             }
+//            viewLifecycleOwner.lifecycleScope.launch {
+//                val listFood=FoodRepository().getFoodName(id)
+//                adapter = FoodAdapter(
+//                    listFood,
+//                    glide = Glide.with(this@BreakfastSearchFragment)){
+//                    loadFood(etFood.text.toString())
+//                }
+//                binding?.foodList?.adapter=adapter
+//            }
         }
     }
+
     private fun loadFood(query: String){
         lifecycleScope.launch {
             api.getFood(query).also {

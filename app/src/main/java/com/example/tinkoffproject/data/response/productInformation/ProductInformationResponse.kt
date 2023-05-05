@@ -3,7 +3,7 @@ package com.example.tinkoffproject.data.response.productInformation
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductInformationReponse(
+data class ProductInformationResponse(
     @SerializedName("aisle")
     val aisle: String?,
     @SerializedName("badges")

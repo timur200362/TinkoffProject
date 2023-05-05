@@ -13,9 +13,9 @@ class FoodItem(
         with(binding) {
             tvFoodName.text = foodList.name
 
-            glide
-                .load(foodList.icon)
-                .into(ivFoodIcon)
+//            glide
+//                .load(foodList.icon)
+//                .into(ivFoodIcon)
 
             root.setOnClickListener {
                 action(foodList)
