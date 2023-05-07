@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Servings(
     @SerializedName("number")
-    val number: Double?,//
+    val number: Double,//
     @SerializedName("size")
-    val size: Double?,//
+    val size: Double,//
     @SerializedName("unit")
-    val unit: String?
+    val unit: String
 )

@@ -1,5 +1,6 @@
 package com.example.tinkoffproject.data
 
+import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.data.response.product.SearchProduct
 import com.example.tinkoffproject.data.response.productInformation.ProductInformationResponse
 import com.example.tinkoffproject.data.response.productInformation.ProductListInformationResponse

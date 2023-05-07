@@ -5,20 +5,24 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.DataContainer
-import com.example.tinkoffproject.data.FoodRepository
+import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.FirstPage.Model.FoodAdapter
+import com.example.tinkoffproject.presentation.FirstPage.MVVM.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.FirstPage.MVVM.BreakfastSearchViewModelFactory
 import kotlinx.coroutines.launch
 
 class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
+    private lateinit var viewModel: BreakfastSearchViewModel
     private var binding:FragmentBreakfastsearchBinding?=null
-    private val api = DataContainer.foodApi
-    private var adapter:FoodAdapter?=null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel=ViewModelProvider(this,BreakfastSearchViewModelFactory())[BreakfastSearchViewModel::class.java]
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,27 +50,20 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
         }
     }
 
+
     private fun loadFood(query: String){
         lifecycleScope.launch {
-            api.getFood(query).also {
-                showLoading(true)
-                var idStr = 0
-                var nameStr = ""
-                it.products?.forEach{
-                    idStr = it?.id!!
-                    api.getFoodInfo(idStr).also {
-                        nameStr+="${it.title} "
-                    }
-                }
-                binding?.tvFoodName?.text="${nameStr}"
-                showLoading(false)
+            showLoading(true)
+            viewModel.getApi(query)
+            viewModel.resultApi.observe(viewLifecycleOwner){
+                binding?.tvFoodName?.text=it.toString()
             }
+            showLoading(false)
         }
     }
     private fun showLoading(isShow:Boolean){
         binding?.progress?.isVisible = isShow
     }
-
     companion object {
         const val BreakfastSearchFragment_TAG="BreakfastSearchFragment_TAG"
         fun getInstance(bundle: Bundle?): BreakfastSearchFragment {

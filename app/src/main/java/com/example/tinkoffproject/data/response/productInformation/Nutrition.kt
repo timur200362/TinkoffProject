@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Nutrition(
     @SerializedName("caloricBreakdown")
-    val caloricBreakdown: CaloricBreakdown?,
+    val caloricBreakdown: CaloricBreakdown,
     @SerializedName("nutrients")
-    val nutrients: List<Nutrient?>?
+    val nutrients: List<Nutrient>
 )
