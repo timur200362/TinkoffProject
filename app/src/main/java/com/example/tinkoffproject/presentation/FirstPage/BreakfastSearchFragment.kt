@@ -3,25 +3,28 @@ package com.example.tinkoffproject.presentation.FirstPage
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.DataContainer
-import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
 import com.example.tinkoffproject.presentation.FirstPage.MVVM.BreakfastSearchViewModel
-import com.example.tinkoffproject.presentation.FirstPage.MVVM.BreakfastSearchViewModelFactory
+import com.example.tinkoffproject.presentation.FirstPage.Model.FoodAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     private lateinit var viewModel: BreakfastSearchViewModel
     private var binding:FragmentBreakfastsearchBinding?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel=ViewModelProvider(this,BreakfastSearchViewModelFactory())[BreakfastSearchViewModel::class.java]
+        viewModel=ViewModelProvider(this)[BreakfastSearchViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,15 +41,6 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
                     false
                 }
             }
-//            viewLifecycleOwner.lifecycleScope.launch {
-//                val listFood=FoodRepository().getFoodName(id)
-//                adapter = FoodAdapter(
-//                    listFood,
-//                    glide = Glide.with(this@BreakfastSearchFragment)){
-//                    loadFood(etFood.text.toString())
-//                }
-//                binding?.foodList?.adapter=adapter
-//            }
         }
     }
 
@@ -56,7 +50,9 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
             showLoading(true)
             viewModel.getApi(query)
             viewModel.resultApi.observe(viewLifecycleOwner){
-                binding?.tvFoodName?.text=it.toString()
+                binding?.foodList?.adapter=FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)){ product->
+                    Toast.makeText(activity,product.title, Toast.LENGTH_SHORT).show()
+                }
             }
             showLoading(false)
         }

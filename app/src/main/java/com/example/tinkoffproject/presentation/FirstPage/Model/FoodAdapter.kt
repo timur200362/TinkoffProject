@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
+import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.databinding.ItemFoodBinding
 
 class FoodAdapter(
-    private val list: List<Food>,
+    private val list: List<Product>,
     private val glide: RequestManager,
-    private val action: (Food) -> Unit
+    private val action: (Product) -> Unit
 ) : RecyclerView.Adapter<FoodItem>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodItem =
         FoodItem(

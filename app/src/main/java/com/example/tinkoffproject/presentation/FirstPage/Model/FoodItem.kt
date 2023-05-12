@@ -2,23 +2,24 @@ package com.example.tinkoffproject.presentation.FirstPage.Model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
+import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.databinding.ItemFoodBinding
 
 class FoodItem(
     private val binding: ItemFoodBinding,
     private val glide: RequestManager,
-    private val action: (Food) -> Unit
+    private val action: (Product) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun onBind(foodList: Food) {
+    fun onBind(food: Product) {
         with(binding) {
-            tvFoodName.text = foodList.name
+            tvFoodName.text = food.title
 
-//            glide
-//                .load(foodList.icon)
-//                .into(ivFoodIcon)
+            glide
+                .load("https://www.oum.ru/upload/iblock/dcc/dcc519cc127f7b838f5344be0107e9ba.jpg")
+                .into(ivFoodIcon)
 
             root.setOnClickListener {
-                action(foodList)
+                action(food)
             }
         }
     }

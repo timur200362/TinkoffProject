@@ -13,19 +13,19 @@ data class ProductInformationResponse(
     @SerializedName("generatedText")
     val generatedText: Any,
     @SerializedName("id")
-    val id: Double,//
+    val id: Double,
     @SerializedName("imageType")
     val imageType: String,
     @SerializedName("importantBadges")
     val importantBadges: List<String>,
     @SerializedName("ingredientCount")
-    val ingredientCount: Double,//
+    val ingredientCount: Double,
     @SerializedName("ingredientList")
     val ingredientList: String,
     @SerializedName("ingredients")
-    val ingredients: List<Ingredient?>?,
+    val ingredients: List<Ingredient>,
     @SerializedName("likes")
-    val likes: Double,//
+    val likes: Double,
     @SerializedName("nutrition")
     val nutrition: Nutrition,
     @SerializedName("price")

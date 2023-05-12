@@ -7,7 +7,7 @@ data class CaloricBreakdown(
     @SerializedName("percentCarbs")
     val percentCarbs: Double,
     @SerializedName("percentFat")
-    val percentFat: Double,//
+    val percentFat: Double,
     @SerializedName("percentProtein")
     val percentProtein: Double
 )
