@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             if(bnvMain.selectedItemId!=R.id.mainFragment) {
                 bnvMain.selectedItemId=R.id.mainFragment
             } else{
-                super.onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
             }
         }
     }
