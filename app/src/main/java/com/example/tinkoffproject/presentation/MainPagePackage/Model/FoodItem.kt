@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.FirstPage.Model
+package com.example.tinkoffproject.presentation.MainPagePackage.Model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager

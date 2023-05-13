@@ -1,11 +1,11 @@
-package com.example.tinkoffproject.presentation.FirstPage.MVVM
+package com.example.tinkoffproject.presentation.MainPagePackage.MVVM
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tinkoffproject.data.response.product.Product
-import com.example.tinkoffproject.presentation.FirstPage.UseCases.GetProductInfoUseCase
+import com.example.tinkoffproject.presentation.MainPagePackage.UseCases.GetProductInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

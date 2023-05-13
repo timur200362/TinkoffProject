@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle.xml" value="0.444" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle2.xml" value="0.365" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_account_box_16.xml" value="0.3745" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_add_circle_outline_16.xml" value="0.444" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_circle_16.xml" value="0.365" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_statistic_16.xml" value="0.3745" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_breakfastsearch.xml" value="0.16292134831460675" />
@@ -13,6 +15,7 @@
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_dinnersearch.xml" value="0.4505208333333333" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_mainpage.xml" value="0.33" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_nightdinnersearch.xml" value="0.44947916666666665" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_settings.xml" value="0.553125" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_snackssearch.xml" value="0.44947916666666665" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_statistics.xml" value="0.33" />

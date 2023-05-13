@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.FourthPage
+package com.example.tinkoffproject.presentation.StatisticsPagePackage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tinkoffproject.R
 
-class SettingsFragment:Fragment(R.layout.fragment_settings) {
+class StatisticsFragment:Fragment(R.layout.fragment_statistics) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,6 +17,6 @@ class SettingsFragment:Fragment(R.layout.fragment_settings) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_statistics, container, false)
     }
 }

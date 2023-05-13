@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.FirstPage
+package com.example.tinkoffproject.presentation.MainPagePackage
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,13 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.FirstPage.MVVM.BreakfastSearchViewModel
-import com.example.tinkoffproject.presentation.FirstPage.Model.FoodAdapter
+import com.example.tinkoffproject.presentation.MainPagePackage.MVVM.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.MainPagePackage.Model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -33,7 +32,7 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
         arguments?.getString("foodName")?.let {
         }
         binding?.run{
-            etFood.setOnEditorActionListener { v, actionId, event ->
+            etFood.setOnEditorActionListener { _, actionId, _ ->
                 if(actionId == EditorInfo.IME_ACTION_SEARCH){
                     loadFood(etFood.text.toString())
                     true
