@@ -1,13 +1,12 @@
 package com.example.tinkoffproject.data.Repository
 
-import com.example.tinkoffproject.data.DataContainer
-import com.example.tinkoffproject.data.FoodContainer
+import com.example.tinkoffproject.data.FoodApi
 import com.example.tinkoffproject.data.response.product.SearchProduct
 import javax.inject.Inject
 
 
-class LoadFoodRepository @Inject constructor() {
+class LoadFoodRepository @Inject constructor(private val foodApi: FoodApi) {
     suspend fun getFoodName(foodName:String): SearchProduct {
-        return DataContainer.foodApi.getFood(foodName)
+        return foodApi.getFood(foodName)
     }
 }
