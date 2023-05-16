@@ -1,6 +1,6 @@
 package com.example.tinkoffproject.domain.UseCases
 
-import com.example.tinkoffproject.data.Repository.LoadFoodRepository
+import com.example.tinkoffproject.data.repository.LoadFoodRepository
 import com.example.tinkoffproject.data.response.product.Product
 import javax.inject.Inject
 

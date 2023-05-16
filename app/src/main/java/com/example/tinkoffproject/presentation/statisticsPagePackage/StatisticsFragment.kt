@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.DietPagePackage
+package com.example.tinkoffproject.presentation.statisticsPagePackage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tinkoffproject.R
 
-class DietFragment:Fragment(R.layout.fragment_diet) {
+class StatisticsFragment:Fragment(R.layout.fragment_statistics) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,6 +17,6 @@ class DietFragment:Fragment(R.layout.fragment_diet) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diet, container, false)
+        return inflater.inflate(R.layout.fragment_statistics, container, false)
     }
 }

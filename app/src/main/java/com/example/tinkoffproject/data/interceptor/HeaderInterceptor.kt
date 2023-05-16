@@ -1,6 +1,5 @@
 package com.example.tinkoffproject.data.interceptor
 
-import com.example.tinkoffproject.data.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
 

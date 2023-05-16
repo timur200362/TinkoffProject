@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.MainPagePackage
+package com.example.tinkoffproject.presentation.mainPagePackage
 
 import android.os.Bundle
 import android.view.View
@@ -11,8 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.MainPagePackage.MVVM.BreakfastSearchViewModel
-import com.example.tinkoffproject.presentation.MainPagePackage.Model.FoodAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.MVVM.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.Model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

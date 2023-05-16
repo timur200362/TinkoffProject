@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.SettingsPagePackage
+package com.example.tinkoffproject.presentation.settingsPagePackage
 
 import android.os.Bundle
 import android.view.LayoutInflater

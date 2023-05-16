@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.data.Repository
+package com.example.tinkoffproject.data.repository
 
 import com.example.tinkoffproject.data.FoodApi
 import com.example.tinkoffproject.data.response.product.SearchProduct

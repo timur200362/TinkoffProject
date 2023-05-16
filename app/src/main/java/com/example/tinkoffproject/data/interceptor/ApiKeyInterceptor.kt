@@ -1,8 +1,9 @@
 package com.example.tinkoffproject.data.interceptor
 
-import com.example.tinkoffproject.data.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
+
+const val API_KEY="19dd87ea73ea4d618f7661859d85dda1"
 
 class ApiKeyInterceptor:Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {

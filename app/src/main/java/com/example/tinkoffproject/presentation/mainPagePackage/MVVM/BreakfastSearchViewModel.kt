@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.MainPagePackage.MVVM
+package com.example.tinkoffproject.presentation.mainPagePackage.MVVM
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
