@@ -5,35 +5,35 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductInformationResponse(
     @SerializedName("aisle")
-    val aisle: String?,
+    val aisle: String,
     @SerializedName("badges")
-    val badges: List<String?>?,
+    val badges: List<String>,
     @SerializedName("breadcrumbs")
-    val breadcrumbs: List<String?>?,
+    val breadcrumbs: List<String>,
     @SerializedName("generatedText")
-    val generatedText: Any?,
+    val generatedText: Any,
     @SerializedName("id")
-    val id: Double?,//
+    val id: Double,
     @SerializedName("imageType")
-    val imageType: String?,
+    val imageType: String,
     @SerializedName("importantBadges")
-    val importantBadges: List<String?>?,
+    val importantBadges: List<String>,
     @SerializedName("ingredientCount")
-    val ingredientCount: Double?,//
+    val ingredientCount: Double,
     @SerializedName("ingredientList")
-    val ingredientList: String?,
+    val ingredientList: String,
     @SerializedName("ingredients")
-    val ingredients: List<Ingredient?>?,
+    val ingredients: List<Ingredient>,
     @SerializedName("likes")
-    val likes: Double?,//
+    val likes: Double,
     @SerializedName("nutrition")
-    val nutrition: Nutrition?,
+    val nutrition: Nutrition,
     @SerializedName("price")
-    val price: Double?,
+    val price: Double,
     @SerializedName("servings")
-    val servings: Servings?,
+    val servings: Servings,
     @SerializedName("spoonacularScore")
-    val spoonacularScore: Double?,
+    val spoonacularScore: Double,
     @SerializedName("title")
-    val title: String?
+    val title: String
 )

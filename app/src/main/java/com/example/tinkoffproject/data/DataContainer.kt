@@ -1,9 +1,7 @@
 package com.example.tinkoffproject.data
 
 import com.example.tinkoffproject.BuildConfig
-import com.example.tinkoffproject.data.FoodApi
 import com.example.tinkoffproject.data.interceptor.ApiKeyInterceptor
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

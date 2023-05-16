@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.FirstPage
+package com.example.tinkoffproject.presentation.MainPagePackage
 
 import android.os.Bundle
 import android.view.View

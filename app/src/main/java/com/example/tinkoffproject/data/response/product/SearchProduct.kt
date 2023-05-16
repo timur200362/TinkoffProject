@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchProduct(
     @SerializedName("number")
-    val number: Int?,
+    val number: Int,
     @SerializedName("offset")
-    val offset: Int?,
+    val offset: Int,
     @SerializedName("products")
-    val products: List<Product?>?,
+    val products: List<Product>,
     @SerializedName("totalProducts")
-    val totalProducts: Int?,
+    val totalProducts: Int,
     @SerializedName("type")
-    val type: String?
+    val type: String
 )

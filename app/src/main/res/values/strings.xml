@@ -16,4 +16,11 @@
     <string name="notification">Уведомления</string>
     <string name="language">Язык</string>
     <string name="theme">Тема</string>
+    <string name="profile">Профиль</string>
+    <string name="name">Имя</string>
+    <string name="age">Возраст</string>
+    <string name="weight">Вес:</string>
+    <string name="height">Рост:</string>
+    <string name="gender">Пол:</string>
+    <string name="profileInformation">Личная информация:</string>
 </resources>

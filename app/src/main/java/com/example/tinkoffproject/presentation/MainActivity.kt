@@ -9,7 +9,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var controller:NavController
     private var binding:ActivityMainBinding?=null
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             if(bnvMain.selectedItemId!=R.id.mainFragment) {
                 bnvMain.selectedItemId=R.id.mainFragment
             } else{
-                super.onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
             }
         }
     }
