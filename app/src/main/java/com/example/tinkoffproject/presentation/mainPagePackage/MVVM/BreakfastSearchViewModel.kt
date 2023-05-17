@@ -13,14 +13,14 @@ import javax.inject.Inject
 @HiltViewModel
 class BreakfastSearchViewModel @Inject constructor(
     private val getProductInfoUseCase: GetProductInfoUseCase
-    ):ViewModel() {
+) : ViewModel() {
     private val _resultApi = MutableLiveData<List<Product>>()
     val resultApi: LiveData<List<Product>>
         get() = _resultApi
 
-    fun getApi(foodName:String){
+    fun getApi(foodName: String) {
         viewModelScope.launch {
-            _resultApi.value=getProductInfoUseCase.execute(foodName)
+            _resultApi.value = getProductInfoUseCase.execute(foodName)
         }
     }
 }

@@ -80,6 +80,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_calciumInput"
         app:layout_constraintStart_toEndOf="@+id/tv_calciumInput"
         app:layout_constraintTop_toTopOf="@+id/tv_calciumInput" />
+
     <TextView
         android:id="@+id/tv_cholesterol"
         android:layout_width="wrap_content"
@@ -101,6 +102,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_cholesterol"
         app:layout_constraintStart_toEndOf="@+id/tv_cholesterol"
         app:layout_constraintTop_toTopOf="@+id/tv_cholesterol" />
+
     <TextView
         android:id="@+id/tv_cholesterolUnit"
         android:layout_width="wrap_content"
@@ -109,6 +111,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_cholesterolInput"
         app:layout_constraintStart_toEndOf="@+id/tv_cholesterolInput"
         app:layout_constraintTop_toTopOf="@+id/tv_cholesterolInput" />
+
     <TextView
         android:id="@+id/tv_fat"
         android:layout_width="wrap_content"
@@ -130,6 +133,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_fat"
         app:layout_constraintStart_toEndOf="@+id/tv_fat"
         app:layout_constraintTop_toTopOf="@+id/tv_fat" />
+
     <TextView
         android:id="@+id/tv_fatUnit"
         android:layout_width="wrap_content"
@@ -160,6 +164,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_protein"
         app:layout_constraintStart_toEndOf="@+id/tv_protein"
         app:layout_constraintTop_toTopOf="@+id/tv_protein" />
+
     <TextView
         android:id="@+id/tv_proteinUnit"
         android:layout_width="wrap_content"
@@ -168,6 +173,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_proteinInput"
         app:layout_constraintStart_toEndOf="@+id/tv_proteinInput"
         app:layout_constraintTop_toTopOf="@+id/tv_proteinInput" />
+
     <TextView
         android:id="@+id/tv_calories"
         android:layout_width="wrap_content"
@@ -189,6 +195,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_calories"
         app:layout_constraintStart_toEndOf="@+id/tv_calories"
         app:layout_constraintTop_toTopOf="@+id/tv_calories" />
+
     <TextView
         android:id="@+id/tv_caloriesUnit"
         android:layout_width="wrap_content"
@@ -197,6 +204,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_caloriesInput"
         app:layout_constraintStart_toEndOf="@+id/tv_caloriesInput"
         app:layout_constraintTop_toTopOf="@+id/tv_caloriesInput" />
+
     <TextView
         android:id="@+id/tv_sugar"
         android:layout_width="wrap_content"
@@ -218,6 +226,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_sugar"
         app:layout_constraintStart_toEndOf="@+id/tv_sugar"
         app:layout_constraintTop_toTopOf="@+id/tv_sugar" />
+
     <TextView
         android:id="@+id/tv_sugarUnit"
         android:layout_width="wrap_content"
@@ -226,6 +235,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_sugarInput"
         app:layout_constraintStart_toEndOf="@+id/tv_sugarInput"
         app:layout_constraintTop_toTopOf="@+id/tv_sugarInput" />
+
     <TextView
         android:id="@+id/tv_badges"
         android:layout_width="wrap_content"
@@ -257,6 +267,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_badges" />
+
     <ImageButton
         android:id="@+id/btn_ingredients"
         android:layout_width="390dp"
@@ -275,7 +286,6 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_ingredients"
         app:layout_constraintStart_toStartOf="@+id/btn_ingredients"
         app:layout_constraintTop_toBottomOf="@+id/btn_ingredients" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

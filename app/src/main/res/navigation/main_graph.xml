@@ -9,20 +9,20 @@
         android:id="@+id/mainFragment"
         android:name="com.example.tinkoffproject.presentation.mainPagePackage.MainPageFragment"
         android:label="MainPageFragment"
-        tools:layout="@layout/fragment_mainpage"/>
+        tools:layout="@layout/fragment_mainpage" />
     <fragment
         android:id="@+id/statisticFragment"
         android:name="com.example.tinkoffproject.presentation.statisticsPagePackage.StatisticsFragment"
         android:label="StatisticsFragment"
-        tools:layout="@layout/fragment_statistics"/>
+        tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/dietFragment"
         android:name="com.example.tinkoffproject.presentation.dietPagePackage.DietFragment"
         android:label="DietFragment"
-        tools:layout="@layout/fragment_diet"/>
+        tools:layout="@layout/fragment_diet" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.tinkoffproject.presentation.settingsPagePackage.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/fragment_settings"/>
+        tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 
 class LoadFoodRepository @Inject constructor(private val foodApi: FoodApi) {
-    suspend fun getFoodName(foodName:String): SearchProduct {
+    suspend fun getFoodName(foodName: String): SearchProduct {
         return foodApi.getFood(foodName)
     }
 }

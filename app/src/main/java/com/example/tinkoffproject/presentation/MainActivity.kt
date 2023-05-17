@@ -1,7 +1,7 @@
 package com.example.tinkoffproject.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,15 +13,16 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var controller:NavController
-    private var binding:ActivityMainBinding?=null
+    private lateinit var controller: NavController
+    private var binding: ActivityMainBinding? = null
 
-    override fun onCreate(savedInstanceState:Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater).also{
+        binding = ActivityMainBinding.inflate(layoutInflater).also {
             setContentView(it.root)
         }
-        controller=(supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
+        controller =
+            (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
 
         val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf(R.id.mainFragment),
@@ -34,11 +35,12 @@ class MainActivity : AppCompatActivity() {
             bnvMain.setupWithNavController(controller)
         }
     }
+
     override fun onBackPressed() {
         binding?.run {
-            if(bnvMain.selectedItemId!=R.id.mainFragment) {
-                bnvMain.selectedItemId=R.id.mainFragment
-            } else{
+            if (bnvMain.selectedItemId != R.id.mainFragment) {
+                bnvMain.selectedItemId = R.id.mainFragment
+            } else {
                 onBackPressedDispatcher.onBackPressed()
             }
         }

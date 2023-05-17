@@ -17,23 +17,23 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
+class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
     private lateinit var viewModel: BreakfastSearchViewModel
-    private var binding:FragmentBreakfastsearchBinding?=null
+    private var binding: FragmentBreakfastsearchBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel=ViewModelProvider(this)[BreakfastSearchViewModel::class.java]
+        viewModel = ViewModelProvider(this)[BreakfastSearchViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding=FragmentBreakfastsearchBinding.bind(view)
+        binding = FragmentBreakfastsearchBinding.bind(view)
         arguments?.getString("foodName")?.let {
         }
-        binding?.run{
+        binding?.run {
             etFood.setOnEditorActionListener { _, actionId, _ ->
-                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     loadFood(etFood.text.toString())
                     true
                 } else {
@@ -44,26 +44,29 @@ class BreakfastSearchFragment:Fragment(R.layout.fragment_breakfastsearch) {
     }
 
 
-    private fun loadFood(query: String){
+    private fun loadFood(query: String) {
         lifecycleScope.launch {
             showLoading(true)
             viewModel.getApi(query)
-            viewModel.resultApi.observe(viewLifecycleOwner){
-                binding?.foodList?.adapter=FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)){ product->
-                    Toast.makeText(activity,product.title, Toast.LENGTH_SHORT).show()
-                }
+            viewModel.resultApi.observe(viewLifecycleOwner) {
+                binding?.foodList?.adapter =
+                    FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
+                        Toast.makeText(activity, product.title, Toast.LENGTH_SHORT).show()
+                    }
             }
             showLoading(false)
         }
     }
-    private fun showLoading(isShow:Boolean){
+
+    private fun showLoading(isShow: Boolean) {
         binding?.progress?.isVisible = isShow
     }
+
     companion object {
-        const val BreakfastSearchFragment_TAG="BreakfastSearchFragment_TAG"
+        const val BreakfastSearchFragment_TAG = "BreakfastSearchFragment_TAG"
         fun getInstance(bundle: Bundle?): BreakfastSearchFragment {
-            val breakfastSearchFragment= BreakfastSearchFragment()
-            breakfastSearchFragment.arguments=bundle
+            val breakfastSearchFragment = BreakfastSearchFragment()
+            breakfastSearchFragment.arguments = bundle
             return breakfastSearchFragment
         }
     }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tinkoffproject.R
 
-class DietFragment:Fragment(R.layout.fragment_diet) {
+class DietFragment : Fragment(R.layout.fragment_diet) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

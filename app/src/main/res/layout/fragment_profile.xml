@@ -68,6 +68,7 @@
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/v_photo"
         app:layout_constraintTop_toBottomOf="@+id/tv_profileInformation" />
+
     <TextView
         android:id="@+id/tv_weightText"
         android:layout_width="wrap_content"
@@ -88,6 +89,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/tv_weight"
         app:layout_constraintTop_toBottomOf="@+id/tv_weight" />
+
     <TextView
         android:id="@+id/tv_heightText"
         android:layout_width="wrap_content"
@@ -108,6 +110,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/tv_height"
         app:layout_constraintTop_toBottomOf="@+id/tv_height" />
+
     <TextView
         android:id="@+id/tv_genderText"
         android:layout_width="wrap_content"
