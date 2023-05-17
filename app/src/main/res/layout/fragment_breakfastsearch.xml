@@ -52,6 +52,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toTopOf="@+id/button" />
+
     <TextView
         android:id="@+id/tv_btnFats"
         android:layout_width="wrap_content"
@@ -60,20 +61,10 @@
         android:text="@string/fats"
         android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_btnCarbohydrates"
+        app:layout_constraintEnd_toStartOf="@+id/tv_eatenBreakfast"
         app:layout_constraintStart_toEndOf="@+id/tv_btnSquirrels"
         app:layout_constraintTop_toTopOf="@+id/button" />
-    <TextView
-        android:id="@+id/tv_btnCarbohydrates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/carbohydrates"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+
     <TextView
         android:id="@+id/tv_squirrels_calc"
         android:layout_width="wrap_content"
@@ -92,34 +83,26 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_btnFats"
         app:layout_constraintStart_toStartOf="@+id/tv_btnFats"
         app:layout_constraintTop_toBottomOf="@+id/tv_btnFats" />
+
     <TextView
-        android:id="@+id/tv_carbohydrates_calc"
+        android:id="@+id/tv_eatenBreakfast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test"
+        android:layout_marginEnd="25dp"
+        android:text="@string/eaten"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/tv_btnCarbohydrates"
-        app:layout_constraintStart_toStartOf="@+id/tv_btnCarbohydrates"
-        app:layout_constraintTop_toBottomOf="@+id/tv_btnCarbohydrates" />
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/tv_btnSquirrels" />
+
     <TextView
         android:id="@+id/tv_eatenAllBreakfast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/tv_eatenBreakfast"
-        app:layout_constraintEnd_toEndOf="@+id/tv_squirrels_calc"
-        app:layout_constraintStart_toStartOf="@+id/tv_squirrels_calc" />
-    <TextView
-        android:id="@+id/tv_eatenBreakfast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eaten"
-        android:textColor="@color/black"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/tv_eatenAllBreakfast"
-        app:layout_constraintStart_toStartOf="@+id/tv_eatenAllBreakfast" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_eatenBreakfast"
+        app:layout_constraintStart_toStartOf="@+id/tv_eatenBreakfast"
+        app:layout_constraintTop_toBottomOf="@+id/tv_eatenBreakfast" />
 
     <ImageButton
         android:id="@+id/btn_food"
