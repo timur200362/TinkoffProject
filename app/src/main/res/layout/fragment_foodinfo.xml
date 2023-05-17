@@ -77,6 +77,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="mg"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_calciumInput"
         app:layout_constraintStart_toEndOf="@+id/tv_calciumInput"
         app:layout_constraintTop_toTopOf="@+id/tv_calciumInput" />
@@ -108,6 +111,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="mg"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cholesterolInput"
         app:layout_constraintStart_toEndOf="@+id/tv_cholesterolInput"
         app:layout_constraintTop_toTopOf="@+id/tv_cholesterolInput" />
@@ -139,6 +145,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="g"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_fatInput"
         app:layout_constraintStart_toEndOf="@+id/tv_fatInput"
         app:layout_constraintTop_toTopOf="@+id/tv_fatInput" />
@@ -170,6 +179,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="g"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_proteinInput"
         app:layout_constraintStart_toEndOf="@+id/tv_proteinInput"
         app:layout_constraintTop_toTopOf="@+id/tv_proteinInput" />
@@ -201,6 +213,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="kcal"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_caloriesInput"
         app:layout_constraintStart_toEndOf="@+id/tv_caloriesInput"
         app:layout_constraintTop_toTopOf="@+id/tv_caloriesInput" />
@@ -232,6 +247,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:text="g"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_sugarInput"
         app:layout_constraintStart_toEndOf="@+id/tv_sugarInput"
         app:layout_constraintTop_toTopOf="@+id/tv_sugarInput" />
