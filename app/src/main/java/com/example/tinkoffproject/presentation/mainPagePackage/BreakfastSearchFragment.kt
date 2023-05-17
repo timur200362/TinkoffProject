@@ -51,7 +51,8 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
             viewModel.resultApi.observe(viewLifecycleOwner) {
                 binding?.foodList?.adapter =
                     FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
-                        Toast.makeText(activity, product.title, Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(activity, product.title, Toast.LENGTH_SHORT).show()
+                        loadFoodInfo(query)
                     }
             }
             showLoading(false)
@@ -60,6 +61,19 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
 
     private fun showLoading(isShow: Boolean) {
         binding?.progress?.isVisible = isShow
+    }
+
+    private fun loadFoodInfo(query: String) {
+        val bundle = Bundle()
+        bundle.putString("foodName", query)
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.container,
+                FoodInfoFragment.getInstance(bundle),
+                FoodInfoFragment.FoodInfoFragment_TAG
+            )
+            .addToBackStack(null)
+            .commit()
     }
 
     companion object {
