@@ -2,6 +2,8 @@ package com.example.tinkoffproject.domain.UseCases
 
 import com.example.tinkoffproject.data.repository.LoadFoodInfoRepository
 import com.example.tinkoffproject.data.response.product.Product
+import com.example.tinkoffproject.data.response.productInformation.Nutrient
+import com.example.tinkoffproject.data.response.productInformation.Nutrition
 import com.example.tinkoffproject.data.response.productInformation.ProductInformationResponse
 import javax.inject.Inject
 
@@ -11,15 +13,22 @@ class GetProductTitleUseCase @Inject constructor(
     suspend fun execute(foodId: Int): ProductResponse {
         loadFoodInfoRepository.getFoodInfo(foodId).run {
             return ProductResponse(
-                title
+                title,
+                nutrition = NutritionResponse(nutrition.nutrients),
+                importantBadges,
+                ingredientList
             )
         }
     }
 }
 data class ProductResponse(
-    val title:String
+    val title:String,
+    val nutrition: NutritionResponse,
+    val importantBadges: List<String>,
+    val ingredientList: String
 )
-//title
-//nutrition(Calcium,Cholesterol,Fat,Protein,Carbohydrates,Calories,Sugar)
+data class NutritionResponse(
+    val nutrients: List<Nutrient>
+)
 //importantBadges
 //ingredientList

@@ -27,7 +27,7 @@ data class ProductInformationResponse(
     @SerializedName("likes")
     val likes: Double,
     @SerializedName("nutrition")
-    val nutrition: Nutrition,//
+    val nutrition: Nutrition,
     @SerializedName("price")
     val price: Double,
     @SerializedName("servings")
@@ -35,5 +35,5 @@ data class ProductInformationResponse(
     @SerializedName("spoonacularScore")
     val spoonacularScore: Double,
     @SerializedName("title")
-    val title: String//
+    val title: String
 )

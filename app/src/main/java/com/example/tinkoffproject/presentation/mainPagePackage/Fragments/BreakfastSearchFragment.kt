@@ -44,17 +44,15 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
 
 
     private fun loadFood(query: String) {
-        lifecycleScope.launch {
-            showLoading(true)
-            viewModel.getApi(query)
-            viewModel.resultApi.observe(viewLifecycleOwner) {
-                binding?.foodList?.adapter =
-                    FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
-                        loadFoodInfo(product.id)
-                    }
-            }
-            showLoading(false)
+        showLoading(true)
+        viewModel.getApi(query)
+        viewModel.resultApi.observe(viewLifecycleOwner) {
+            binding?.foodList?.adapter =
+                FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
+                    loadFoodInfo(product.id)
+                }
         }
+        showLoading(false)
     }
 
     private fun showLoading(isShow: Boolean) {

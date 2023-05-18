@@ -309,6 +309,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_badges" />
 
     <TextView
+        android:id="@+id/tv_badgesInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_badges"
+        app:layout_constraintEnd_toEndOf="@+id/btn_badges"
+        app:layout_constraintStart_toStartOf="@+id/btn_badges"
+        app:layout_constraintTop_toBottomOf="@+id/tv_badges" />
+
+    <TextView
         android:id="@+id/tv_ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -326,6 +335,15 @@
         android:background="@drawable/circle_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ingredients" />
+
+    <TextView
+        android:id="@+id/tv_ingredientsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ingredients"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ingredients"
+        app:layout_constraintStart_toStartOf="@+id/btn_ingredients"
         app:layout_constraintTop_toBottomOf="@+id/tv_ingredients" />
 
     <Button
