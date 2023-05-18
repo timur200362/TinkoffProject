@@ -17,17 +17,17 @@ data class ProductInformationResponse(
     @SerializedName("imageType")
     val imageType: String,
     @SerializedName("importantBadges")
-    val importantBadges: List<String>,
+    val importantBadges: List<String>,//
     @SerializedName("ingredientCount")
     val ingredientCount: Double,
     @SerializedName("ingredientList")
-    val ingredientList: String,
+    val ingredientList: String,//
     @SerializedName("ingredients")
     val ingredients: List<Ingredient>,
     @SerializedName("likes")
     val likes: Double,
     @SerializedName("nutrition")
-    val nutrition: Nutrition,
+    val nutrition: Nutrition,//
     @SerializedName("price")
     val price: Double,
     @SerializedName("servings")
@@ -35,5 +35,5 @@ data class ProductInformationResponse(
     @SerializedName("spoonacularScore")
     val spoonacularScore: Double,
     @SerializedName("title")
-    val title: String
+    val title: String//
 )

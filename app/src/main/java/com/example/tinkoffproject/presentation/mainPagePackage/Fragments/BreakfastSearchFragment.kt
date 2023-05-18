@@ -1,9 +1,8 @@
-package com.example.tinkoffproject.presentation.mainPagePackage
+package com.example.tinkoffproject.presentation.mainPagePackage.Fragments
 
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -51,8 +50,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
             viewModel.resultApi.observe(viewLifecycleOwner) {
                 binding?.foodList?.adapter =
                     FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
-                        //Toast.makeText(activity, product.title, Toast.LENGTH_SHORT).show()
-                        loadFoodInfo(query)
+                        loadFoodInfo(product.id)
                     }
             }
             showLoading(false)
@@ -63,9 +61,9 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         binding?.progress?.isVisible = isShow
     }
 
-    private fun loadFoodInfo(query: String) {
+    private fun loadFoodInfo(id:Int) {
         val bundle = Bundle()
-        bundle.putString("foodName", query)
+        bundle.putInt("foodId",id)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(
                 R.id.container,

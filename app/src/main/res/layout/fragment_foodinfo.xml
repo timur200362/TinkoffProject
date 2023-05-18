@@ -185,6 +185,39 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_proteinInput"
         app:layout_constraintStart_toEndOf="@+id/tv_proteinInput"
         app:layout_constraintTop_toTopOf="@+id/tv_proteinInput" />
+    <TextView
+        android:id="@+id/tv_carbohydrates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/carbohydrates"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_protein" />
+
+    <TextView
+        android:id="@+id/tv_carbohydratesInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_carbohydrates"
+        app:layout_constraintStart_toEndOf="@+id/tv_carbohydrates"
+        app:layout_constraintTop_toTopOf="@+id/tv_carbohydrates" />
+
+    <TextView
+        android:id="@+id/tv_carbohydratesUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="g"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_carbohydratesInput"
+        app:layout_constraintStart_toEndOf="@+id/tv_carbohydratesInput"
+        app:layout_constraintTop_toTopOf="@+id/tv_carbohydratesInput" />
 
     <TextView
         android:id="@+id/tv_calories"
@@ -195,7 +228,7 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_protein" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_carbohydrates" />
 
     <TextView
         android:id="@+id/tv_caloriesInput"

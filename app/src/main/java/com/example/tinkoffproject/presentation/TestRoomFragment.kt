@@ -5,8 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.room.Room
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.dataBase.AppDatabase
-import com.example.tinkoffproject.data.dataBase.Meal
+import com.example.tinkoffproject.data.database.AppDatabase
+import com.example.tinkoffproject.data.database.Meal
 import com.example.tinkoffproject.databinding.FragmentTestroomBinding
 
 class TestRoomFragment:Fragment(R.layout.fragment_testroom) {

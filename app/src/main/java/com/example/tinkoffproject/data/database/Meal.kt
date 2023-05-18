@@ -1,8 +1,7 @@
-package com.example.tinkoffproject.data.dataBase
+package com.example.tinkoffproject.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity
 data class Meal (

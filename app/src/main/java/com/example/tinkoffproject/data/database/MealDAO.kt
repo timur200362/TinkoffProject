@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.data.dataBase
+package com.example.tinkoffproject.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert

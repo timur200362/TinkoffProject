@@ -37,9 +37,10 @@
         android:id="@+id/button"
         android:layout_width="380dp"
         android:layout_height="130dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/circle"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ti_food" />
 
@@ -63,7 +64,7 @@
         android:text="@string/fats"
         android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_eatenBreakfast"
+        app:layout_constraintEnd_toStartOf="@+id/tv_carbohydrates_calc"
         app:layout_constraintStart_toEndOf="@+id/tv_btnSquirrels"
         app:layout_constraintTop_toTopOf="@+id/button" />
 
@@ -88,11 +89,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_btnFats" />
 
     <TextView
-        android:id="@+id/tv_eatenBreakfast"
+        android:id="@+id/tv_carbohydrates_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:text="@string/eaten"
+        android:text="@string/carbohydrates"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="@+id/tv_btnSquirrels" />
@@ -103,9 +104,43 @@
         android:layout_height="wrap_content"
         android:text="test"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/tv_eatenBreakfast"
-        app:layout_constraintStart_toStartOf="@+id/tv_eatenBreakfast"
-        app:layout_constraintTop_toBottomOf="@+id/tv_eatenBreakfast" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_carbohydrates_calc"
+        app:layout_constraintStart_toStartOf="@+id/tv_carbohydrates_calc"
+        app:layout_constraintTop_toBottomOf="@+id/tv_carbohydrates_calc" />
+
+    <TextView
+        android:id="@+id/tv_eatenKcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calories"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/tv_btnSquirrels"
+        app:layout_constraintStart_toStartOf="@+id/tv_btnSquirrels"
+        app:layout_constraintTop_toBottomOf="@+id/tv_squirrels_calc" />
+    <TextView
+        android:id="@+id/tv_calciumInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_eatenKcal"
+        app:layout_constraintStart_toEndOf="@+id/tv_eatenKcal"
+        app:layout_constraintTop_toTopOf="@+id/tv_eatenKcal" />
+
+    <TextView
+        android:id="@+id/tv_calciumUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="mg"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_calciumInput"
+        app:layout_constraintStart_toEndOf="@+id/tv_calciumInput"
+        app:layout_constraintTop_toTopOf="@+id/tv_calciumInput" />
 
     <ImageButton
         android:id="@+id/btn_food"

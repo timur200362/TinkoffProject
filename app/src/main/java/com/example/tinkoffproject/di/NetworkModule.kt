@@ -3,6 +3,7 @@ package com.example.tinkoffproject.di
 import androidx.viewbinding.BuildConfig
 import com.example.tinkoffproject.data.FoodApi
 import com.example.tinkoffproject.data.interceptor.ApiKeyInterceptor
+import com.example.tinkoffproject.data.interceptor.HeaderInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,10 +32,12 @@ class NetworkModule {
     @Provides
     fun provideHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        apiKeyInterceptor: ApiKeyInterceptor
+        apiKeyInterceptor: ApiKeyInterceptor,
+        headerInterceptor: HeaderInterceptor
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
         .addInterceptor(apiKeyInterceptor)
+        .addInterceptor(headerInterceptor)
         .connectTimeout(10, TimeUnit.SECONDS)
         .build()
 
@@ -52,11 +55,15 @@ class NetworkModule {
     fun provideGsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
     @Provides
-    fun provideWeatherApi(
+    fun provideFoodApi(
         retrofit: Retrofit
     ): FoodApi = retrofit.create(FoodApi::class.java)
 
     @Provides
     fun provideApiKeyInterceptor(
     ): ApiKeyInterceptor = ApiKeyInterceptor()
+
+    @Provides
+    fun provideHeaderInterceptor(
+    ): HeaderInterceptor = HeaderInterceptor()
 }

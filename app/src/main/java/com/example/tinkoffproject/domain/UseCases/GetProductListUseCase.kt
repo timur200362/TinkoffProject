@@ -5,7 +5,7 @@ import com.example.tinkoffproject.data.response.product.Product
 import javax.inject.Inject
 
 
-class GetProductInfoUseCase @Inject constructor(
+class GetProductListUseCase @Inject constructor(
     private val loadFoodRepository: LoadFoodRepository
 ) {
     suspend fun execute(foodName: String): List<Product> {

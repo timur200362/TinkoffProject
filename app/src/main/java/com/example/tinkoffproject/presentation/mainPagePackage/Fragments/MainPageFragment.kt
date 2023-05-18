@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage
+package com.example.tinkoffproject.presentation.mainPagePackage.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
+import com.example.tinkoffproject.presentation.mainPagePackage.DinnerSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.NightDinnerSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.SnacksSearchFragment
 
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
 

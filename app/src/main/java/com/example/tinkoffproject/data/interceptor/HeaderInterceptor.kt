@@ -7,7 +7,7 @@ class HeaderInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val newUrl = original.url.newBuilder()
-            .addPathSegment("id")//как сделать
+            .addPathSegment("id")
             .build()
 
         return chain.proceed(
