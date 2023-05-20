@@ -33,134 +33,18 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="380dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/circle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_food" />
-
-    <TextView
-        android:id="@+id/tv_btnSquirrels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/squirrels"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
-
-    <TextView
-        android:id="@+id/tv_btnFats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/fats"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_carbohydrates_calc"
-        app:layout_constraintStart_toEndOf="@+id/tv_btnSquirrels"
-        app:layout_constraintTop_toTopOf="@+id/button" />
-
-    <TextView
-        android:id="@+id/tv_squirrels_calc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/tv_btnSquirrels"
-        app:layout_constraintStart_toStartOf="@+id/tv_btnSquirrels"
-        app:layout_constraintTop_toBottomOf="@+id/tv_btnSquirrels" />
-
-    <TextView
-        android:id="@+id/tv_fats_calc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/tv_btnFats"
-        app:layout_constraintStart_toStartOf="@+id/tv_btnFats"
-        app:layout_constraintTop_toBottomOf="@+id/tv_btnFats" />
-
-    <TextView
-        android:id="@+id/tv_carbohydrates_calc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:text="@string/carbohydrates"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/tv_btnSquirrels" />
-
-    <TextView
-        android:id="@+id/tv_eatenAllBreakfast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/tv_carbohydrates_calc"
-        app:layout_constraintStart_toStartOf="@+id/tv_carbohydrates_calc"
-        app:layout_constraintTop_toBottomOf="@+id/tv_carbohydrates_calc" />
-
-    <TextView
-        android:id="@+id/tv_eatenKcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/calories"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/tv_btnSquirrels"
-        app:layout_constraintStart_toStartOf="@+id/tv_btnSquirrels"
-        app:layout_constraintTop_toBottomOf="@+id/tv_squirrels_calc" />
-    <TextView
-        android:id="@+id/tv_calciumInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_eatenKcal"
-        app:layout_constraintStart_toEndOf="@+id/tv_eatenKcal"
-        app:layout_constraintTop_toTopOf="@+id/tv_eatenKcal" />
-
-    <TextView
-        android:id="@+id/tv_calciumUnit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="mg"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_calciumInput"
-        app:layout_constraintStart_toEndOf="@+id/tv_calciumInput"
-        app:layout_constraintTop_toTopOf="@+id/tv_calciumInput" />
-
-    <ImageButton
-        android:id="@+id/btn_food"
-        android:layout_width="380dp"
-        android:layout_height="450dp"
-        android:background="@drawable/circle"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/foodList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
+        android:layout_marginTop="7dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_food"
-        app:layout_constraintTop_toTopOf="@+id/btn_food"
-        tools:itemCount="10"
+        app:layout_constraintEnd_toEndOf="@+id/ti_food"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/ti_food"
+        app:layout_constraintTop_toBottomOf="@+id/ti_food"
+        tools:itemCount="15"
         tools:listitem="@layout/item_food" />
 
 
@@ -169,8 +53,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_food"
-        app:layout_constraintEnd_toEndOf="@+id/btn_food"
-        app:layout_constraintStart_toStartOf="@+id/btn_food"
-        app:layout_constraintTop_toTopOf="@+id/btn_food" />
+        app:layout_constraintBottom_toBottomOf="@+id/foodList"
+        app:layout_constraintEnd_toEndOf="@+id/foodList" />
 </androidx.constraintlayout.widget.ConstraintLayout>
