@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.Fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,12 @@ import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.MVVM.BreakfastSearchViewModel
-import com.example.tinkoffproject.presentation.mainPagePackage.Model.FoodAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {

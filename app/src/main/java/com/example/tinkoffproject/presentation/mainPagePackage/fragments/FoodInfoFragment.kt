@@ -1,17 +1,14 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.Fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.response.productInformation.Nutrition
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
-import com.example.tinkoffproject.domain.UseCases.NutritionResponse
-import com.example.tinkoffproject.presentation.mainPagePackage.MVVM.FoodInfoViewModel
+import com.example.tinkoffproject.domain.useCases.ProductFilter
+import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
@@ -29,7 +26,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         arguments?.getInt("foodId")?.let { loadTitle(it) }
         viewModel.resultApiTitle.observe(viewLifecycleOwner){
             showTitle(it.title)
-            showNutrition(it.nutrition)
+            showNutrition(it)
             showImportantBadges(it.importantBadges)
             showIngredientList(it.ingredientList)
         }
@@ -43,15 +40,15 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             text = title
         }
     }
-    private fun showNutrition(nutrition: NutritionResponse){
+    private fun showNutrition(nutrition: ProductFilter){
         binding?.run {
-            tvCalciumInput.text= nutrition.nutrients.toString()
-//            tvCholesterolInput.text= nutrition.nutrients.toString()
-//            tvFatInput.text= nutrition.nutrients.toString()
-//            tvProteinInput.text= nutrition.nutrients.toString()
-//            tvCarbohydratesInput.text= nutrition.nutrients.toString()
-//            tvCaloriesInput.text= nutrition.nutrients.toString()
-//            tvSugarInput.text= nutrition.nutrients.toString()
+            tvCalciumInput.text = nutrition.calcium
+            tvCholesterolInput.text= nutrition.cholesterol
+            tvFatInput.text= nutrition.fat
+            tvProteinInput.text= nutrition.protein
+            tvCarbohydratesInput.text= nutrition.carbohydrates
+            tvCaloriesInput.text= nutrition.calories
+            tvSugarInput.text= nutrition.sugar
         }
     }
     private fun showImportantBadges(importantBadges:List<String>){

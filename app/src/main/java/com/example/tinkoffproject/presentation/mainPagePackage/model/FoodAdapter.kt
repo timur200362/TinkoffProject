@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.Model
+package com.example.tinkoffproject.presentation.mainPagePackage.model
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

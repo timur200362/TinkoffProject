@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.Fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
