@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.MainPagePackage.Model
+package com.example.tinkoffproject.presentation.mainPagePackage.model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
@@ -18,7 +18,7 @@ class FoodItem(
                 .load("https://www.oum.ru/upload/iblock/dcc/dcc519cc127f7b838f5344be0107e9ba.jpg")
                 .into(ivFoodIcon)
 
-            root.setOnClickListener {
+            cardView.setOnClickListener {
                 action(food)
             }
         }

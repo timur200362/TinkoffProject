@@ -10,7 +10,6 @@
     <string name="dinner1">Обед</string>
     <string name="dinner2">Ужин</string>
     <string name="snacks">Перекусы</string>
-    <string name="eaten">Съедено</string>
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="notification">Уведомления</string>
@@ -23,4 +22,16 @@
     <string name="height">Рост:</string>
     <string name="gender">Пол:</string>
     <string name="profileInformation">Личная информация:</string>
+    <string name="moreInfoProduct">Подробная информация</string>
+    <string name="productName">Название блюда:</string>
+    <string name="microElements">Микроэлементы:</string>
+    <string name="calcium">Кальций:</string>
+    <string name="cholesterol">Холестирин:</string>
+    <string name="calories">Калории:</string>
+    <string name="fat">Жиры:</string>
+    <string name="protein">Белки:</string>
+    <string name="sugar">Сахар:</string>
+    <string name="badges">Метки:</string>
+    <string name="ingredients">Ингредиенты:</string>
+    <string name="add">Добавить</string>
 </resources>

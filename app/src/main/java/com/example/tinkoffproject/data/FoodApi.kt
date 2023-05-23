@@ -9,8 +9,8 @@ import retrofit2.http.Query
 interface FoodApi {
 
     @GET("food/products/search")
-    suspend fun getFood(@Query("query") name:String):SearchProduct
+    suspend fun getFood(@Query("query") name: String): SearchProduct
 
     @GET("food/products/{Id}")
-    suspend fun getFoodInfo(@Path("Id") id:Int): ProductInformationResponse
+    suspend fun getFoodInfo(@Path("Id") id: Int): ProductInformationResponse
 }
