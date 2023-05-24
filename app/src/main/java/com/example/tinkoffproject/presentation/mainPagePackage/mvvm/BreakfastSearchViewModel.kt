@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tinkoffproject.data.database.mealDatabase.Meal
-import com.example.tinkoffproject.data.database.mealDatabase.MealDAO
 import com.example.tinkoffproject.data.response.product.Product
 import com.example.tinkoffproject.domain.useCases.GetProductListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

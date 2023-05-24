@@ -7,8 +7,8 @@ import androidx.room.Query
 @Dao
 interface MealDAO {
     @Insert
-    suspend fun insert(meal: Meal)
+    suspend fun insert(mealBreakfast: MealBreakfast)
 
-    @Query("SELECT * FROM Meal")
-    suspend fun getAll(): List<Meal>
+    @Query("SELECT * FROM MealBreakfast")
+    suspend fun getAll(): List<MealBreakfast>
 }

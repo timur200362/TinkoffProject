@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
+import com.example.tinkoffproject.data.database.mealDatabase.AppDatabase
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.SnacksSearchFragment
+import kotlinx.coroutines.launch
 
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
 
@@ -42,9 +45,27 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         }
     }
 
-    private fun waterSum(waterNubmer: Double) {
+    override fun onResume() {
+        super.onResume()
+        getFromDatabase()
+    }
+    private fun getFromDatabase(){//ToDo сделать по архитектуре
+        val db = AppDatabase.getDatabase(requireContext())
+        val userDao = db.mealDao()
+        lifecycleScope.launch {
+            binding?.run {
+                tvProteinInput.text = userDao.getAll().sumOf { it.protein }.toString()
+                tvFatInput.text = userDao.getAll().sumOf { it.fat }.toString()
+                tvCarbohydrateInput.text = userDao.getAll().sumOf { it.carbohydrates }.toString()
+                tvCaloriesInput.text = userDao.getAll().sumOf { it.calories }.toString()
+                tvDate.text=userDao.getAll().map { it.date }.toString()
+            }
+        }
+    }
+
+    private fun waterSum(waterNumber: Double) {
         binding?.run {
-            val water2 = waterNubmer + 0.25
+            val water2 = waterNumber + 0.25
             tvDrunkResult.text = "$water2"
         }
     }

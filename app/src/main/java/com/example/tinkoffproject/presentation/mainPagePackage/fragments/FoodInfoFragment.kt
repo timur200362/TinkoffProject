@@ -7,12 +7,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.database.mealDatabase.AppDatabase
-import com.example.tinkoffproject.data.database.mealDatabase.Meal
+import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.time.Instant.now
+import java.time.LocalDate
+import java.util.*
 
 @AndroidEntryPoint
 class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
@@ -71,13 +75,15 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding?.tvIngredientsInput?.text = ingredientList
     }
     private fun addToDatabase(){//ToDo сделать по архитектуре
+        //val formatedDate = Date()
         val db = AppDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
-            userDao.insert(Meal(title = binding?.tvFoodNameInput?.text.toString(), fat = binding?.tvFatInput?.text.toString(),
-                protein = binding?.tvProteinInput?.text.toString(),
-                carbohydrates = binding?.tvCarbohydratesInput?.text.toString(),
-                calories = binding?.tvCaloriesInput?.text.toString()))
+            userDao.insert(MealBreakfast(
+                title = binding?.tvFoodNameInput?.text.toString(), fat = binding?.tvFatInput?.text.toString().toDouble(),
+                protein = binding?.tvProteinInput?.text.toString().toDouble(),
+                carbohydrates = binding?.tvCarbohydratesInput?.text.toString().toDouble(),
+                calories = binding?.tvCaloriesInput?.text.toString().toDouble(), date = Date()))
         }
     }
 
