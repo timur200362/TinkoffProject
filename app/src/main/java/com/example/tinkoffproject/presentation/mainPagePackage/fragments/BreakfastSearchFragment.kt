@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.BreakfastSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.BreakfastSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,9 +57,9 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         binding?.progress?.isVisible = isShow
     }
 
-    private fun loadFoodInfo(id:Int) {
+    private fun loadFoodInfo(id: Int) {
         val bundle = Bundle()
-        bundle.putInt("foodId",id)
+        bundle.putInt("foodId", id)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(
                 R.id.container,

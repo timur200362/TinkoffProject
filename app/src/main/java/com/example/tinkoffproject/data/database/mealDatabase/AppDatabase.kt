@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.data.database
+package com.example.tinkoffproject.data.database.mealDatabase
 
 import android.content.Context
 import androidx.room.Database
@@ -12,20 +12,20 @@ import com.example.tinkoffproject.presentation.Converter
 abstract class AppDatabase : RoomDatabase() {
     abstract fun mealDao(): MealDAO
 
-    companion object{
+    companion object {
         @Volatile
-        private var Instance:AppDatabase?=null
+        private var Instance: AppDatabase? = null
 
-        fun getDatabase(context: Context):AppDatabase{
-            val tempInstance= Instance
-            if (tempInstance!=null) return tempInstance
-            synchronized(this){
-                val instance=Room.databaseBuilder(
+        fun getDatabase(context: Context): AppDatabase {
+            val tempInstance = Instance
+            if (tempInstance != null) return tempInstance
+            synchronized(this) {
+                val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
                 ).build()
-                Instance=instance
+                Instance = instance
                 return instance
             }
         }
