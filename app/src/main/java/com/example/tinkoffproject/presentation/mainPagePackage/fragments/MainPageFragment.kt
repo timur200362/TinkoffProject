@@ -13,6 +13,9 @@ import com.example.tinkoffproject.presentation.mainPagePackage.DinnerSearchFragm
 import com.example.tinkoffproject.presentation.mainPagePackage.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.SnacksSearchFragment
 import kotlinx.coroutines.launch
+import java.text.DateFormat
+import java.text.DateFormatSymbols
+import java.util.*
 
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
 
@@ -38,6 +41,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                 val water2 = water.toDouble()
                 waterSum(water2)
             }
+            tvDate.text= Date().toString()
             addBreakfast()
             addDinner()
             addNightDinner()
@@ -58,7 +62,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                 tvFatInput.text = userDao.getAll().sumOf { it.fat }.toString()
                 tvCarbohydrateInput.text = userDao.getAll().sumOf { it.carbohydrates }.toString()
                 tvCaloriesInput.text = userDao.getAll().sumOf { it.calories }.toString()
-                tvDate.text=userDao.getAll().map { it.date }.toString()
+                //tvDate.text=userDao.getAll().map { it.date }.toString()
             }
         }
     }
