@@ -36,4 +36,5 @@
     <string name="ingredients">Ингредиенты:</string>
     <string name="add">Добавить</string>
     <string name="favourites">Избранное</string>
+    <string name="search">Поиск</string>
 </resources>
