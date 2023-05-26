@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.example.tinkoffproject.presentation.Converter
-import java.time.LocalDate
 import java.util.*
 
 @TypeConverters(Converter::class)

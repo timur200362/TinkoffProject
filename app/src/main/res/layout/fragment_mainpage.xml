@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -268,6 +269,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_carbohydrateBreakfast"
             app:layout_constraintStart_toEndOf="@+id/tv_proteinBreakfast"
             app:layout_constraintTop_toTopOf="@+id/tv_proteinBreakfast" />
+
         <TextView
             android:id="@+id/tv_fatInput"
             android:layout_width="wrap_content"
@@ -286,6 +288,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/v_breakfast"
             app:layout_constraintTop_toBottomOf="@+id/v_breakfast" />
+
         <TextView
             android:id="@+id/tv_carbohydrateInput"
             android:layout_width="wrap_content"

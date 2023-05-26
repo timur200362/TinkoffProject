@@ -39,7 +39,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                 val water2 = water.toDouble()
                 waterSum(water2)
             }
-            tvDate.text= Date().toString()
+            tvDate.text = Date().toString()
             addBreakfast()
             addDinner()
             addNightDinner()
@@ -51,7 +51,8 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         super.onResume()
         getFromDatabase()
     }
-    private fun getFromDatabase(){//ToDo сделать по архитектуре
+
+    private fun getFromDatabase() {//ToDo сделать по архитектуре
         val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {

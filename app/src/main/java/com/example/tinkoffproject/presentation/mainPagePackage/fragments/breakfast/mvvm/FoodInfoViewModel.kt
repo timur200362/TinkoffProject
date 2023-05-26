@@ -1,6 +1,9 @@
 package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.domain.useCases.GetProductTitleUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

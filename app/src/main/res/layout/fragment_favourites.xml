@@ -4,26 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabMode="fixed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
 
         <TextView
             android:id="@+id/tv_favouritesName"
@@ -49,5 +33,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_favouritesName"
             tools:itemCount="15"
             tools:listitem="@layout/item_favourites" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

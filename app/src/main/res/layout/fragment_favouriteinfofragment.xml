@@ -75,6 +75,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_calcium"
             app:layout_constraintStart_toEndOf="@+id/tv_calcium"
             app:layout_constraintTop_toTopOf="@+id/tv_calcium" />
+
         <TextView
             android:id="@+id/tv_calciumUnit"
             android:layout_width="wrap_content"
@@ -108,6 +109,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_cholesterol"
             app:layout_constraintStart_toEndOf="@+id/tv_cholesterol"
             app:layout_constraintTop_toTopOf="@+id/tv_cholesterol" />
+
         <TextView
             android:id="@+id/tv_cholesterolUnit"
             android:layout_width="wrap_content"
@@ -141,6 +143,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_fat"
             app:layout_constraintStart_toEndOf="@+id/tv_fat"
             app:layout_constraintTop_toTopOf="@+id/tv_fat" />
+
         <TextView
             android:id="@+id/tv_fatUnit"
             android:layout_width="wrap_content"
@@ -174,6 +177,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_protein"
             app:layout_constraintStart_toEndOf="@+id/tv_protein"
             app:layout_constraintTop_toTopOf="@+id/tv_protein" />
+
         <TextView
             android:id="@+id/tv_proteinUnit"
             android:layout_width="wrap_content"
@@ -207,6 +211,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_carbohydrates"
             app:layout_constraintStart_toEndOf="@+id/tv_carbohydrates"
             app:layout_constraintTop_toTopOf="@+id/tv_carbohydrates" />
+
         <TextView
             android:id="@+id/tv_carbohydratesUnit"
             android:layout_width="wrap_content"
@@ -240,6 +245,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_calories"
             app:layout_constraintStart_toEndOf="@+id/tv_calories"
             app:layout_constraintTop_toTopOf="@+id/tv_calories" />
+
         <TextView
             android:id="@+id/tv_caloriesUnit"
             android:layout_width="wrap_content"
@@ -273,6 +279,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_sugar"
             app:layout_constraintStart_toEndOf="@+id/tv_sugar"
             app:layout_constraintTop_toTopOf="@+id/tv_sugar" />
+
         <TextView
             android:id="@+id/tv_sugarUnit"
             android:layout_width="wrap_content"

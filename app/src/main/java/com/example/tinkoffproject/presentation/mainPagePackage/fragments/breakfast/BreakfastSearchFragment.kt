@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

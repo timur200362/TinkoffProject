@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
+import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
@@ -36,7 +36,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             showIngredientList(it.ingredientList)
         }
         binding?.run {
-            btnAdd.setOnClickListener{ view ->
+            btnAdd.setOnClickListener { view ->
                 addToDatabase()
             }
         }
@@ -71,24 +71,27 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     private fun showIngredientList(ingredientList: String) {
         binding?.tvIngredientsInput?.text = ingredientList
     }
-    private fun addToDatabase(){//ToDo сделать по архитектуре
+
+    private fun addToDatabase() {//ToDo сделать по архитектуре
         val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
             binding?.run {
-                userDao.insert(MealBreakfast(
-                    title = tvFoodNameInput.text.toString(),
-                    fat = tvFatInput.text.toString().toDouble(),
-                    protein = tvProteinInput.text.toString().toDouble(),
-                    carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
-                    calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
-                    calcium = tvCalciumInput.text.toString().toDouble(),
-                    cholesterol = tvCholesterolInput.text.toString().toDouble(),
-                    sugar = tvSugarInput.text.toString().toDouble(),
-                    importantBadges = tvBadgesInput.text.toString(),
-                    ingredients = tvIngredientsInput.text.toString(),
-                    isFavourite = false
-                ))
+                userDao.insert(
+                    MealBreakfast(
+                        title = tvFoodNameInput.text.toString(),
+                        fat = tvFatInput.text.toString().toDouble(),
+                        protein = tvProteinInput.text.toString().toDouble(),
+                        carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
+                        calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
+                        calcium = tvCalciumInput.text.toString().toDouble(),
+                        cholesterol = tvCholesterolInput.text.toString().toDouble(),
+                        sugar = tvSugarInput.text.toString().toDouble(),
+                        importantBadges = tvBadgesInput.text.toString(),
+                        ingredients = tvIngredientsInput.text.toString(),
+                        isFavourite = false
+                    )
+                )
             }
         }
     }
