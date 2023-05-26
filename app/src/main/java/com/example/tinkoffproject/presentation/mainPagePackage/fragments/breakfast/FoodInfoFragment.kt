@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast
 
 import android.os.Bundle
 import android.view.View
@@ -6,16 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.AppDatabase
+import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.FoodInfoViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.time.Instant.now
-import java.time.LocalDate
 import java.util.*
 
 @AndroidEntryPoint
@@ -75,15 +72,24 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding?.tvIngredientsInput?.text = ingredientList
     }
     private fun addToDatabase(){//ToDo сделать по архитектуре
-        //val formatedDate = Date()
-        val db = AppDatabase.getDatabase(requireContext())
+        val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
-            userDao.insert(MealBreakfast(
-                title = binding?.tvFoodNameInput?.text.toString(), fat = binding?.tvFatInput?.text.toString().toDouble(),
-                protein = binding?.tvProteinInput?.text.toString().toDouble(),
-                carbohydrates = binding?.tvCarbohydratesInput?.text.toString().toDouble(),
-                calories = binding?.tvCaloriesInput?.text.toString().toDouble(), date = Date()))
+            binding?.run {
+                userDao.insert(MealBreakfast(
+                    title = tvFoodNameInput.text.toString(),
+                    fat = tvFatInput.text.toString().toDouble(),
+                    protein = tvProteinInput.text.toString().toDouble(),
+                    carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
+                    calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
+                    calcium = tvCalciumInput.text.toString().toDouble(),
+                    cholesterol = tvCholesterolInput.text.toString().toDouble(),
+                    sugar = tvSugarInput.text.toString().toDouble(),
+                    importantBadges = tvBadgesInput.text.toString(),
+                    ingredients = tvIngredientsInput.text.toString(),
+                    isFavourite = false
+                ))
+            }
         }
     }
 

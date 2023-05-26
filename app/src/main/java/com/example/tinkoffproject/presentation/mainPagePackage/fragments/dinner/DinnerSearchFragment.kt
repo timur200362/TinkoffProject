@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner
 
 import android.os.Bundle
 import android.view.View

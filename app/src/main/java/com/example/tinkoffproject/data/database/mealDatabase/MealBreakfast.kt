@@ -17,5 +17,11 @@ data class MealBreakfast(
     @ColumnInfo(name = "protein") val protein: Double,
     @ColumnInfo(name = "carbohydrates") val carbohydrates: Double,
     @ColumnInfo(name = "calories") val calories: Double,
-    @ColumnInfo(name = "date") val date: Date
+    @ColumnInfo(name = "date") val date: Date,
+    @ColumnInfo(name = "isFavourite") val isFavourite: Boolean,
+    @ColumnInfo(name = "calcium") val calcium: Double,
+    @ColumnInfo(name = "cholesterol") val cholesterol: Double,
+    @ColumnInfo(name = "sugar") val sugar: Double,
+    @ColumnInfo(name = "importantBadges") val importantBadges: String,
+    @ColumnInfo(name = "ingredients") val ingredients: String,
 )

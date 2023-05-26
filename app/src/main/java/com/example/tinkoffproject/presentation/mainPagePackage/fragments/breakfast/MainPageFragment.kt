@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.AppDatabase
+import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.DinnerSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.NightDinnerSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.SnacksSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.DinnerSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
 import kotlinx.coroutines.launch
-import java.text.DateFormat
-import java.text.DateFormatSymbols
 import java.util.*
 
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
@@ -24,7 +22,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return FragmentMainpageBinding.inflate(inflater, container, false).let {
             binding = it
@@ -54,7 +52,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         getFromDatabase()
     }
     private fun getFromDatabase(){//ToDo сделать по архитектуре
-        val db = AppDatabase.getDatabase(requireContext())
+        val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
             binding?.run {

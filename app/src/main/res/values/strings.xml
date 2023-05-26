@@ -35,4 +35,5 @@
     <string name="badges">Метки:</string>
     <string name="ingredients">Ингредиенты:</string>
     <string name="add">Добавить</string>
+    <string name="favourites">Избранное</string>
 </resources>

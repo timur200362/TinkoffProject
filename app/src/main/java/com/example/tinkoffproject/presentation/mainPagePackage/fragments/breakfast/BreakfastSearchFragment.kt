@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
-import com.example.tinkoffproject.presentation.mainPagePackage.mvvm.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.BreakfastSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

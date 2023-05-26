@@ -8,21 +8,21 @@ import androidx.room.TypeConverters
 import com.example.tinkoffproject.presentation.Converter
 
 @TypeConverters(Converter::class)
-@Database(entities = [MealBreakfast::class], version = 2)
-abstract class AppDatabase : RoomDatabase() {
+@Database(entities = [MealBreakfast::class], version = 3)
+abstract class MealDatabase : RoomDatabase() {
     abstract fun mealDao(): MealDAO
 
     companion object {
         @Volatile
-        private var Instance: AppDatabase? = null
+        private var Instance: MealDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getDatabase(context: Context): MealDatabase {
             val tempInstance = Instance
             if (tempInstance != null) return tempInstance
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    AppDatabase::class.java,
+                    MealDatabase::class.java,
                     "app_database"
                 ).fallbackToDestructiveMigration().build()
                 Instance = instance

@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.mvvm
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
