@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.FavouritesFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.BreakfastSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,9 +39,8 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                 }
             }
         }
+        loadFavourites()
     }
-
-
     private fun loadFood(query: String) {
         showLoading(true)
         viewModel.getApi(query)
@@ -68,6 +68,21 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
             )
             .addToBackStack(null)
             .commit()
+    }
+    private fun loadFavourites() {
+        binding?.run{
+            btnGoToFavourite.setOnClickListener{
+                val bundle = Bundle()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.container,
+                        FavouritesFragment.getInstance(bundle),
+                        FoodInfoFragment.FoodInfoFragment_TAG
+                    )
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
     }
 
     companion object {
