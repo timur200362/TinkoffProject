@@ -1,6 +1,7 @@
 package com.example.tinkoffproject.data.response.productInformation
 
 data class ProductFilter(
+    val id: Double,
     val title: String,
     val calcium: String?,
     val cholesterol: String?,

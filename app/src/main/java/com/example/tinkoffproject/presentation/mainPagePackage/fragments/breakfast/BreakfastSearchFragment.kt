@@ -42,7 +42,6 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         loadFavourites()
     }
     private fun loadFood(query: String) {
-        showLoading(true)
         viewModel.getApi(query)
         viewModel.resultApi.observe(viewLifecycleOwner) {
             binding?.foodList?.adapter =
@@ -50,12 +49,8 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                     loadFoodInfo(product.id)
                 }
         }
-        showLoading(false)
     }
 
-    private fun showLoading(isShow: Boolean) {
-        binding?.progress?.isVisible = isShow
-    }
 
     private fun loadFoodInfo(id: Int) {
         val bundle = Bundle()

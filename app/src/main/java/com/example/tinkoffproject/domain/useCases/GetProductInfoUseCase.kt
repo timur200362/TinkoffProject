@@ -10,6 +10,7 @@ class GetProductTitleUseCase @Inject constructor(
     suspend fun execute(foodId: Int): ProductFilter {
         foodRepository.getFoodInfo(foodId).run {
             return ProductFilter(
+                id,
                 title,
                 calcium = nutrition.nutrients.find { it.name == "Calcium" }?.amount?.toString(),
                 cholesterol = nutrition.nutrients.find { it.name == "Cholesterol" }?.amount?.toString(),

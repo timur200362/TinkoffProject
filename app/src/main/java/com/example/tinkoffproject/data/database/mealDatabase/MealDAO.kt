@@ -3,6 +3,7 @@ package com.example.tinkoffproject.data.database.mealDatabase
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface MealDAO {
@@ -11,4 +12,7 @@ interface MealDAO {
 
     @Query("SELECT * FROM MealBreakfast")
     suspend fun getAll(): List<MealBreakfast>
+
+    @Query("UPDATE MealBreakfast SET isFavourite= :isFavourite WHERE foodId=:id")
+    suspend fun updateFavorite(isFavourite: Boolean, id:Int)
 }

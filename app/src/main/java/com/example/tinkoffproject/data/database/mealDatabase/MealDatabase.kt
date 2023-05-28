@@ -8,14 +8,13 @@ import androidx.room.TypeConverters
 import com.example.tinkoffproject.presentation.Converter
 
 @TypeConverters(Converter::class)
-@Database(entities = [MealBreakfast::class], version = 3)
+@Database(entities = [MealBreakfast::class], version = 5)
 abstract class MealDatabase : RoomDatabase() {
     abstract fun mealDao(): MealDAO
 
     companion object {
         @Volatile
         private var Instance: MealDatabase? = null
-
         fun getDatabase(context: Context): MealDatabase {
             val tempInstance = Instance
             if (tempInstance != null) return tempInstance

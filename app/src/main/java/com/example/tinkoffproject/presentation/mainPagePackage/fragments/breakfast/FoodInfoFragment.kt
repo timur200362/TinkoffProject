@@ -15,6 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.*
 
+
 @AndroidEntryPoint
 class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     private lateinit var viewModel: FoodInfoViewModel
@@ -38,6 +39,9 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding?.run {
             btnAdd.setOnClickListener { view ->
                 addToDatabase()
+            }
+            btnMakeFavourite.setOnClickListener{
+                addFavourite()
             }
         }
     }
@@ -79,6 +83,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             binding?.run {
                 userDao.insert(
                     MealBreakfast(
+                        foodId=tvId.text.toString().toDouble(),
                         title = tvFoodNameInput.text.toString(),
                         fat = tvFatInput.text.toString().toDouble(),
                         protein = tvProteinInput.text.toString().toDouble(),
@@ -92,6 +97,20 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
                         isFavourite = false
                     )
                 )
+            }
+        }
+    }
+    private fun addFavourite(){
+        binding?.run{
+            val db = MealDatabase.getDatabase(requireContext())
+            val userDao = db.mealDao()
+            viewModel.resultApi.observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                    userDao.updateFavorite(
+                        isFavourite = true,
+                        it.id.toInt()
+                    )
+                }
             }
         }
     }

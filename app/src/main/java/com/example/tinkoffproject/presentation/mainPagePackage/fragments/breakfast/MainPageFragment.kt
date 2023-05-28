@@ -61,7 +61,6 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                 tvFatInput.text = userDao.getAll().sumOf { it.fat }.toString()
                 tvCarbohydrateInput.text = userDao.getAll().sumOf { it.carbohydrates }.toString()
                 tvCaloriesInput.text = userDao.getAll().sumOf { it.calories }.toString()
-                //tvDate.text=userDao.getAll().map { it.date }.toString()
             }
         }
     }
