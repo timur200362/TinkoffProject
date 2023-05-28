@@ -31,6 +31,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding = FragmentFoodinfoBinding.bind(view)
         arguments?.getInt("foodId")?.let { loadTitle(it) }
         viewModel.resultApi.observe(viewLifecycleOwner) {
+            showId(it.id)
             showTitle(it.title)
             showNutrition(it)
             showImportantBadges(it.importantBadges)
@@ -74,6 +75,9 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
 
     private fun showIngredientList(ingredientList: String) {
         binding?.tvIngredientsInput?.text = ingredientList
+    }
+    private fun showId(id:Double){
+        binding?.tvId?.text= id.toString()
     }
 
     private fun addToDatabase() {//ToDo сделать по архитектуре
