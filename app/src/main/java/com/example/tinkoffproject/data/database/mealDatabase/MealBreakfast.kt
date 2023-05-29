@@ -22,5 +22,5 @@ data class MealBreakfast(
     @ColumnInfo(name = "cholesterol") val cholesterol: Double,
     @ColumnInfo(name = "sugar") val sugar: Double,
     @ColumnInfo(name = "importantBadges") val importantBadges: String,
-    @ColumnInfo(name = "ingredients") val ingredients: String,
+    @ColumnInfo(name = "ingredients") val ingredients: String
 )

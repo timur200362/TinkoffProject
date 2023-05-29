@@ -19,7 +19,7 @@ import java.util.*
 @AndroidEntryPoint
 class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     private lateinit var viewModel: FoodInfoViewModel
-    private var binding: FragmentFoodinfoBinding? = null
+    private lateinit var binding: FragmentFoodinfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +37,11 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             showImportantBadges(it.importantBadges)
             showIngredientList(it.ingredientList)
         }
-        binding?.run {
+        binding.run {
             btnAdd.setOnClickListener { view ->
                 addToDatabase()
             }
-            btnMakeFavourite.setOnClickListener{
+            btnMakeFavourite.setOnClickListener {
                 addFavourite()
 
             }
@@ -53,13 +53,13 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     }
 
     private fun showTitle(title: String) {
-        binding?.tvFoodNameInput?.run {
+        binding.tvFoodNameInput.run {
             text = title
         }
     }
 
     private fun showNutrition(nutrition: ProductFilter) {
-        binding?.run {
+        binding.run {
             tvCalciumInput.text = nutrition.calcium
             tvCholesterolInput.text = nutrition.cholesterol
             tvFatInput.text = nutrition.fat
@@ -71,42 +71,40 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     }
 
     private fun showImportantBadges(importantBadges: List<String>) {
-        binding?.tvBadgesInput?.text = importantBadges.toString()
+        binding.tvBadgesInput.text = importantBadges.toString()
     }
 
     private fun showIngredientList(ingredientList: String) {
-        binding?.tvIngredientsInput?.text = ingredientList
-    }
-    private fun showId(id:Double){
-        binding?.tvId?.text= id.toString()
+        binding.tvIngredientsInput.text = ingredientList
     }
 
-    private fun addToDatabase() {//TODO сделать по архитектуре
-        val db = MealDatabase.getDatabase(requireContext())
-        val userDao = db.mealDao()
+    private fun showId(id: Double) {
+        binding.tvId.text = id.toString()
+    }
+
+    private fun addToDatabase() {
         lifecycleScope.launch {
-            binding?.run {
-                userDao.insert(
-                    MealBreakfast(
-                        foodId=tvId.text.toString().toDouble(),
-                        title = tvFoodNameInput.text.toString(),
-                        fat = tvFatInput.text.toString().toDouble(),
-                        protein = tvProteinInput.text.toString().toDouble(),
-                        carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
-                        calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
-                        calcium = tvCalciumInput.text.toString().toDouble(),
-                        cholesterol = tvCholesterolInput.text.toString().toDouble(),
-                        sugar = tvSugarInput.text.toString().toDouble(),
-                        importantBadges = tvBadgesInput.text.toString(),
-                        ingredients = tvIngredientsInput.text.toString(),
-                        isFavourite = false
-                    )
+            binding.run {
+                viewModel.insert(
+                    foodId = tvId.text.toString().toDouble(),
+                    title = tvFoodNameInput.text.toString(),
+                    fat = tvFatInput.text.toString().toDouble(),
+                    protein = tvProteinInput.text.toString().toDouble(),
+                    carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
+                    calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
+                    calcium = tvCalciumInput.text.toString().toDouble(),
+                    cholesterol = tvCholesterolInput.text.toString().toDouble(),
+                    sugar = tvSugarInput.text.toString().toDouble(),
+                    importantBadges = tvBadgesInput.text.toString(),
+                    ingredients = tvIngredientsInput.text.toString(),
+                    isFavourite = false
                 )
             }
         }
     }
-    private fun addFavourite(){//TODO сделать по архитектуре
-        binding?.run{
+
+    private fun addFavourite() {//TODO сделать по архитектуре
+        binding.run {
             val db = MealDatabase.getDatabase(requireContext())
             val userDao = db.mealDao()
             viewModel.resultApi.observe(viewLifecycleOwner) {

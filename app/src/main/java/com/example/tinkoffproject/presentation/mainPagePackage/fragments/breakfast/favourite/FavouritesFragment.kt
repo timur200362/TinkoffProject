@@ -6,14 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.BreakfastSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.FoodInfoFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.MainPageFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteAdapter
-import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -31,17 +28,22 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
         }
         goToBreakfastSearch()
     }
+
     private suspend fun loadFavourite() {
         val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         binding?.favouriteFoodList?.adapter =
-            FavouriteAdapter(userDao.getFavourite(), Glide.with(this@FavouritesFragment)) { favourite ->
+            FavouriteAdapter(
+                userDao.getFavourite(),
+                Glide.with(this@FavouritesFragment)
+            ) { favourite ->
                 loadSearchFood(favourite.foodId.toDouble())
             }
     }
-    private fun loadSearchFood(id:Double) {
-        binding?.run{
-            btnGoToSearchFood.setOnClickListener{
+
+    private fun loadSearchFood(id: Double) {
+        binding?.run {
+            btnGoToSearchFood.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putDouble("favouriteId", id)
                 requireActivity().supportFragmentManager.beginTransaction()
@@ -70,6 +72,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
             }
         }
     }
+
     companion object {
         const val FavouritesFragment_TAG = "FavouritesFragment_TAG"
         fun getInstance(bundle: Bundle?): FavouritesFragment {

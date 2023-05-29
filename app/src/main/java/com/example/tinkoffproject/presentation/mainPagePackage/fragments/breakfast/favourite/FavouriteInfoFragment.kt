@@ -7,7 +7,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.FoodInfoFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -25,7 +24,8 @@ class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) 
         binding = FragmentFoodinfoBinding.bind(view)
         arguments?.getInt("favouriteId")?.let { loadFavouriteInfo(it.toDouble()) }
     }
-    private fun loadFavouriteInfo(favouriteId:Double){
+
+    private fun loadFavouriteInfo(favouriteId: Double) {
         val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
@@ -34,6 +34,7 @@ class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) 
             }
         }
     }
+
     companion object {
         const val FavouriteInfoFragment_TAG = "FavouriteInfoFragment_TAG"
         fun getInstance(bundle: Bundle?): FavouriteInfoFragment {
