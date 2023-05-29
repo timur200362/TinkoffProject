@@ -13,11 +13,11 @@ interface MealDAO {
     suspend fun getAll(): List<MealBreakfast>
 
     @Query("UPDATE MealBreakfast SET isFavourite=:isFavourite WHERE foodId=:id")
-    suspend fun updateFavorite(isFavourite: Boolean, id: Double)
+    suspend fun updateFavourite(isFavourite: Boolean, id: Double)
 
     @Query("SELECT * FROM MealBreakfast WHERE isFavourite=true")
     suspend fun getFavourite(): List<MealBreakfast>
 
-//    @Query("SELECT * FROM MealBreakfast WHERE foodId=:id") TODO не работает, че то с конструктором
-//    suspend fun getFavouriteOnId(id:Double)
+    @Query("SELECT * FROM MealBreakfast WHERE foodId=:id")
+    suspend fun getFavouriteById(id:Double):MealBreakfast
 }

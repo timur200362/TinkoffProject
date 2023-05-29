@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
+import com.example.tinkoffproject.databinding.FragmentFavouriteinfofragmentBinding
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) {
-    private var binding: FragmentFoodinfoBinding? = null
+    private var binding: FragmentFavouriteinfofragmentBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +22,8 @@ class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentFoodinfoBinding.bind(view)
-        arguments?.getInt("favouriteId")?.let { loadFavouriteInfo(it.toDouble()) }
+        binding = FragmentFavouriteinfofragmentBinding.bind(view)
+        arguments?.getDouble("favouriteId")?.let { loadFavouriteInfo(it.toDouble()) }
     }
 
     private fun loadFavouriteInfo(favouriteId: Double) {
@@ -30,7 +31,7 @@ class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) 
         val userDao = db.mealDao()
         lifecycleScope.launch {
             binding?.run {
-                //tvFoodNameInput.text=userDao.getFavouriteOnId(favouriteId).toString()
+                tvFoodNameInput.text=userDao.getFavouriteById(favouriteId).toString()
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.domain.useCases
+package com.example.tinkoffproject.domain.useCases.breakfast
 
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.repository.MealBreakfastRepository

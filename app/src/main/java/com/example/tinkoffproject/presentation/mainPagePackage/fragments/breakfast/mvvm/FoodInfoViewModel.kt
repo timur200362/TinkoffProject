@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
-import com.example.tinkoffproject.domain.useCases.AddMealBreakfastUseCase
+import com.example.tinkoffproject.domain.useCases.breakfast.AddMealBreakfastUseCase
 import com.example.tinkoffproject.domain.useCases.GetProductInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,9 +21,6 @@ class FoodInfoViewModel @Inject constructor(
     private val _resultApi = MutableLiveData<ProductFilter>()
     val resultApi: LiveData<ProductFilter>
         get() = _resultApi
-    private val _resultMeal=MutableLiveData<MealBreakfast>()
-    val resultMeal:LiveData<MealBreakfast>
-        get()=_resultMeal
 
     fun getProductInfo(foodId: Int) {
         viewModelScope.launch {

@@ -109,7 +109,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             val userDao = db.mealDao()
             viewModel.resultApi.observe(viewLifecycleOwner) {
                 lifecycleScope.launch {
-                    userDao.updateFavorite(
+                    userDao.updateFavourite(
                         isFavourite = true,
                         it.id
                     )

@@ -43,17 +43,15 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
     private fun loadSearchFood(id: Double) {
         binding?.run {
-            btnGoToSearchFood.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putDouble("favouriteId", id)
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.container,
-                        FavouriteInfoFragment.getInstance(bundle),
-                        FavouriteInfoFragment.FavouriteInfoFragment_TAG
-                    )
-                    .commit()
-            }
+            val bundle = Bundle()
+            bundle.putDouble("favouriteId", id)
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.container,
+                    FavouriteInfoFragment.getInstance(bundle),
+                    FavouriteInfoFragment.FavouriteInfoFragment_TAG
+                )
+                .commit()
         }
     }
 
