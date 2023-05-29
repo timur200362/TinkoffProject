@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.FavouriteInfoFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.FavouritesFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.BreakfastSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
@@ -72,7 +73,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                     .replace(
                         R.id.container,
                         FavouritesFragment.getInstance(bundle),
-                        FoodInfoFragment.FoodInfoFragment_TAG
+                        FavouritesFragment.FavouritesFragment_TAG
                     )
                     .addToBackStack(null)
                     .commit()

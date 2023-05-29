@@ -43,6 +43,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             }
             btnMakeFavourite.setOnClickListener{
                 addFavourite()
+
             }
         }
     }
@@ -80,7 +81,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding?.tvId?.text= id.toString()
     }
 
-    private fun addToDatabase() {//ToDo сделать по архитектуре
+    private fun addToDatabase() {//TODO сделать по архитектуре
         val db = MealDatabase.getDatabase(requireContext())
         val userDao = db.mealDao()
         lifecycleScope.launch {
@@ -104,7 +105,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             }
         }
     }
-    private fun addFavourite(){
+    private fun addFavourite(){//TODO сделать по архитектуре
         binding?.run{
             val db = MealDatabase.getDatabase(requireContext())
             val userDao = db.mealDao()
@@ -112,7 +113,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
                 lifecycleScope.launch {
                     userDao.updateFavorite(
                         isFavourite = true,
-                        it.id.toInt()
+                        it.id
                     )
                 }
             }

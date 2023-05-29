@@ -3,11 +3,19 @@ package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakf
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
+import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
+import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.BreakfastSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.FoodInfoFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.MainPageFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
@@ -16,10 +24,40 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouritesBinding.bind(view)
+        binding?.run {
+        }
+        lifecycleScope.launch {
+            loadFavourite()
+        }
+        goToBreakfastSearch()
     }
-    private fun loadSearchFood() {
+    private suspend fun loadFavourite() {
+        val db = MealDatabase.getDatabase(requireContext())
+        val userDao = db.mealDao()
+        binding?.favouriteFoodList?.adapter =
+            FavouriteAdapter(userDao.getFavourite(), Glide.with(this@FavouritesFragment)) { favourite ->
+                loadSearchFood(favourite.foodId.toDouble())
+            }
+    }
+    private fun loadSearchFood(id:Double) {
         binding?.run{
             btnGoToSearchFood.setOnClickListener{
+                val bundle = Bundle()
+                bundle.putDouble("favouriteId", id)
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.container,
+                        FavouriteInfoFragment.getInstance(bundle),
+                        FavouriteInfoFragment.FavouriteInfoFragment_TAG
+                    )
+                    .commit()
+            }
+        }
+    }
+
+    private fun goToBreakfastSearch() {
+        binding?.run {
+            btnGoToSearchFood.setOnClickListener {
                 val bundle = Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(
@@ -27,6 +65,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
                         BreakfastSearchFragment.getInstance(bundle),
                         BreakfastSearchFragment.BreakfastSearchFragment_TAG
                     )
+                    .addToBackStack(MainPageFragment.MainPageFragment_TAG)
                     .commit()
             }
         }

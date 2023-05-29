@@ -13,6 +13,12 @@ interface MealDAO {
     @Query("SELECT * FROM MealBreakfast")
     suspend fun getAll(): List<MealBreakfast>
 
-    @Query("UPDATE MealBreakfast SET isFavourite= :isFavourite WHERE foodId=:id")
-    suspend fun updateFavorite(isFavourite: Boolean, id:Int)
+    @Query("UPDATE MealBreakfast SET isFavourite=:isFavourite WHERE foodId=:id")
+    suspend fun updateFavorite(isFavourite: Boolean, id:Double)
+
+    @Query("SELECT * FROM MealBreakfast WHERE isFavourite=true")
+    suspend fun getFavourite():List<MealBreakfast>
+
+//    @Query("SELECT * FROM MealBreakfast WHERE foodId=:id")
+//    suspend fun getFavouriteOnId(id:Int)
 }

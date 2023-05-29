@@ -10,7 +10,7 @@ import java.util.*
 @TypeConverters(Converter::class)
 @Entity()
 data class MealBreakfast(
-    @PrimaryKey() val foodId: Double,
+    @PrimaryKey val foodId: Double,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "fat") val fat: Double,
     @ColumnInfo(name = "protein") val protein: Double,
