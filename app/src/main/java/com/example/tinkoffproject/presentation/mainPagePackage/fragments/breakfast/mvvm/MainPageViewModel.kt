@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.domain.useCases.breakfast.GetAllMealBreakfastUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,13 +15,28 @@ import javax.inject.Inject
 class MainPageViewModel @Inject constructor(
     private val getAllMealBreakfastUseCase: GetAllMealBreakfastUseCase
 ):ViewModel() {
-    private val _resultMeal = MutableLiveData<ProductFilter>()
-    val resultMeal: LiveData<ProductFilter>
+    private val _resultMeal = MutableLiveData<String>()
+    val resultMeal: LiveData<String>
         get() = _resultMeal
 
-    fun getAll(){
+    fun getProtein(){
         viewModelScope.launch {
-            getAllMealBreakfastUseCase.execute()
+            _resultMeal.value=getAllMealBreakfastUseCase.executeProtein()
+        }
+    }
+    fun getFat(){
+        viewModelScope.launch {
+            _resultMeal.value=getAllMealBreakfastUseCase.executeFat()
+        }
+    }
+    fun getCarbohydrates(){
+        viewModelScope.launch {
+            _resultMeal.value=getAllMealBreakfastUseCase.executeCarbohydrates()
+        }
+    }
+    fun getCalories(){
+        viewModelScope.launch {
+            _resultMeal.value=getAllMealBreakfastUseCase.executeFat()
         }
     }
 }

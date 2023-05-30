@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
-import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
@@ -38,7 +36,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             showIngredientList(it.ingredientList)
         }
         binding.run {
-            btnAdd.setOnClickListener { view ->
+            btnAdd.setOnClickListener { _ ->
                 addToDatabase()
             }
             btnMakeFavourite.setOnClickListener {
@@ -83,37 +81,28 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     }
 
     private fun addToDatabase() {
-        lifecycleScope.launch {
-            binding.run {
-                viewModel.insert(
-                    foodId = tvId.text.toString().toDouble(),
-                    title = tvFoodNameInput.text.toString(),
-                    fat = tvFatInput.text.toString().toDouble(),
-                    protein = tvProteinInput.text.toString().toDouble(),
-                    carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
-                    calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
-                    calcium = tvCalciumInput.text.toString().toDouble(),
-                    cholesterol = tvCholesterolInput.text.toString().toDouble(),
-                    sugar = tvSugarInput.text.toString().toDouble(),
-                    importantBadges = tvBadgesInput.text.toString(),
-                    ingredients = tvIngredientsInput.text.toString(),
-                    isFavourite = false
-                )
-            }
+        binding.run {
+            viewModel.insert(
+                foodId = tvId.text.toString().toDouble(),
+                title = tvFoodNameInput.text.toString(),
+                fat = tvFatInput.text.toString().toDouble(),
+                protein = tvProteinInput.text.toString().toDouble(),
+                carbohydrates = tvCarbohydratesInput.text.toString().toDouble(),
+                calories = tvCaloriesInput.text.toString().toDouble(), date = Date(),
+                calcium = tvCalciumInput.text.toString().toDouble(),
+                cholesterol = tvCholesterolInput.text.toString().toDouble(),
+                sugar = tvSugarInput.text.toString().toDouble(),
+                importantBadges = tvBadgesInput.text.toString(),
+                ingredients = tvIngredientsInput.text.toString(),
+                isFavourite = false
+            )
         }
     }
 
-    private fun addFavourite() {//TODO сделать по архитектуре
+    private fun addFavourite() {
         binding.run {
-            val db = MealDatabase.getDatabase(requireContext())
-            val userDao = db.mealDao()
-            viewModel.resultApi.observe(viewLifecycleOwner) {
-                lifecycleScope.launch {
-                    userDao.updateFavourite(
-                        isFavourite = true,
-                        it.id
-                    )
-                }
+            viewModel.resultApi.observe(viewLifecycleOwner){
+                viewModel.updateFavourite(isFavourite = true,id.toDouble())
             }
         }
     }

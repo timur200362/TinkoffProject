@@ -3,6 +3,7 @@ package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakf
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
@@ -11,30 +12,35 @@ import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.BreakfastSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.MainPageFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FavouritesViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private var binding: FragmentFavouritesBinding? = null
+    private lateinit var viewModel:FavouritesViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[FavouritesViewModel::class.java]
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouritesBinding.bind(view)
         binding?.run {
         }
-        lifecycleScope.launch {
+        viewModel.resultFavourite.observe(viewLifecycleOwner){
             loadFavourite()
         }
         goToBreakfastSearch()
     }
 
     private suspend fun loadFavourite() {
-        val db = MealDatabase.getDatabase(requireContext())
-        val userDao = db.mealDao()
         binding?.favouriteFoodList?.adapter =
             FavouriteAdapter(
-                userDao.getFavourite(),
+                viewModel.getFavourite(),
                 Glide.with(this@FavouritesFragment)
             ) { favourite ->
                 loadSearchFood(favourite.foodId.toDouble())

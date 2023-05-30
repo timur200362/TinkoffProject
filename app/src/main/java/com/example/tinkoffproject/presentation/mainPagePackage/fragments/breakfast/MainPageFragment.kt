@@ -5,20 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.MainPageViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.*
 
+@AndroidEntryPoint
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
-
+    private lateinit var viewModel:MainPageViewModel
     private var binding: FragmentMainpageBinding? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[MainPageViewModel::class.java]
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,18 +58,18 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
 
     override fun onResume() {
         super.onResume()
-        getFromDatabase()
+        viewModel.resultMeal.observe(viewLifecycleOwner){
+            getFromDatabase()
+        }
     }
 
     private fun getFromDatabase() {//ToDo сделать по архитектуре
-        val db = MealDatabase.getDatabase(requireContext())
-        val userDao = db.mealDao()
         lifecycleScope.launch {
             binding?.run {
-                tvProteinInput.text = userDao.getAll().sumOf { it.protein }.toString()
-                tvFatInput.text = userDao.getAll().sumOf { it.fat }.toString()
-                tvCarbohydrateInput.text = userDao.getAll().sumOf { it.carbohydrates }.toString()
-                tvCaloriesInput.text = userDao.getAll().sumOf { it.calories }.toString()
+                tvProteinInput.text = viewModel.getProtein().toString()
+                tvFatInput.text = viewModel.getFat().toString()
+                tvCarbohydrateInput.text = viewModel.getCarbohydrates().toString()
+                tvCaloriesInput.text = viewModel.getCalories().toString()
             }
         }
     }

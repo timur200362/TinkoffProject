@@ -8,6 +8,7 @@ import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.domain.useCases.breakfast.AddMealBreakfastUseCase
 import com.example.tinkoffproject.domain.useCases.GetProductInfoUseCase
+import com.example.tinkoffproject.domain.useCases.breakfast.UpdateFavouriteMealBreakfastUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.*
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class FoodInfoViewModel @Inject constructor(
     private val getProductInfoUseCase: GetProductInfoUseCase,
-    private val addMealBreakfastUseCase: AddMealBreakfastUseCase
+    private val addMealBreakfastUseCase: AddMealBreakfastUseCase,
+    private val updateFavouriteMealBreakfastUseCase: UpdateFavouriteMealBreakfastUseCase
 ) : ViewModel() {
     private val _resultApi = MutableLiveData<ProductFilter>()
     val resultApi: LiveData<ProductFilter>
@@ -25,6 +27,11 @@ class FoodInfoViewModel @Inject constructor(
     fun getProductInfo(foodId: Int) {
         viewModelScope.launch {
             _resultApi.value = getProductInfoUseCase.execute(foodId)
+        }
+    }
+    fun updateFavourite(isFavourite: Boolean, id: Double){
+        viewModelScope.launch {
+            updateFavouriteMealBreakfastUseCase.execute(isFavourite,id)
         }
     }
     fun insert(
