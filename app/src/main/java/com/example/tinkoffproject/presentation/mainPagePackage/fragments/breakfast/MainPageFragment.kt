@@ -12,6 +12,7 @@ import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.MainPageViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.UIState
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
@@ -59,17 +60,23 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
     override fun onResume() {
         super.onResume()
         viewModel.resultMeal.observe(viewLifecycleOwner){
-            getFromDatabase()
+            when(it){
+                is UIState.Fat -> TODO()
+                is UIState.Protein -> {
+                    binding?.tvProteinInput?.text=it.value
+                }
+            }
         }
+        viewModel.getProtein()
     }
 
-    private fun getFromDatabase() {//ToDo сделать по архитектуре
+    private fun getFromDatabase() {
         lifecycleScope.launch {
             binding?.run {
                 tvProteinInput.text = viewModel.getProtein().toString()
-                tvFatInput.text = viewModel.getFat().toString()
-                tvCarbohydrateInput.text = viewModel.getCarbohydrates().toString()
-                tvCaloriesInput.text = viewModel.getCalories().toString()
+//                tvFatInput.text = viewModel.getFat().toString()
+//                tvCarbohydrateInput.text = viewModel.getCarbohydrates().toString()
+//                tvCaloriesInput.text = viewModel.getCalories().toString()
             }
         }
     }

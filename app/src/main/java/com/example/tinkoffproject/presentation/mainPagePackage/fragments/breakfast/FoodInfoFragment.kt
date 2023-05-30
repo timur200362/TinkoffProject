@@ -41,7 +41,6 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             }
             btnMakeFavourite.setOnClickListener {
                 addFavourite()
-
             }
         }
     }
@@ -101,9 +100,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
 
     private fun addFavourite() {
         binding.run {
-            viewModel.resultApi.observe(viewLifecycleOwner){
-                viewModel.updateFavourite(isFavourite = true,id.toDouble())
-            }
+            viewModel.updateFavourite(isFavourite = true,tvId.text.toString().toDouble())
         }
     }
 

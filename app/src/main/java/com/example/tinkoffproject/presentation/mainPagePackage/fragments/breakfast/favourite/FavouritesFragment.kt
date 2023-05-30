@@ -21,6 +21,12 @@ import kotlinx.coroutines.launch
 class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private var binding: FragmentFavouritesBinding? = null
     private lateinit var viewModel:FavouritesViewModel
+    private val adapter by lazy{
+    FavouriteAdapter(
+        Glide.with(this@FavouritesFragment)
+    ) { favourite ->
+        loadSearchFood(favourite.foodId.toDouble())
+    }}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,21 +36,22 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouritesBinding.bind(view)
         binding?.run {
+            favouriteFoodList.adapter=adapter
         }
-        viewModel.resultFavourite.observe(viewLifecycleOwner){
+        observeFavourite()
+        lifecycleScope.launch {
             loadFavourite()
         }
         goToBreakfastSearch()
     }
+    private fun observeFavourite(){
+        viewModel.resultFavourite.observe(viewLifecycleOwner){
+            adapter.update(it)
+        }
+    }
 
-    private suspend fun loadFavourite() {
-        binding?.favouriteFoodList?.adapter =
-            FavouriteAdapter(
-                viewModel.getFavourite(),
-                Glide.with(this@FavouritesFragment)
-            ) { favourite ->
-                loadSearchFood(favourite.foodId.toDouble())
-            }
+    private fun loadFavourite() {
+        viewModel.fetchFavourite()
     }
 
     private fun loadSearchFood(id: Double) {

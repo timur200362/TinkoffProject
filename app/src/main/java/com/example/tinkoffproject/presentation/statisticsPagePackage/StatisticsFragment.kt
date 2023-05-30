@@ -35,8 +35,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         binding.run {
             lifecycleScope.launch {
                 val meals=mealDatabase.mealDao().getAll()
-                val entries=meals.mapIndexed {index,meal->
-                    Entry(index.toFloat(),meal.calories.toFloat())
+                val entries=meals.map {meal->
+                    Entry(meal.foodId.toFloat(),meal.calories.toFloat())
                 }
                 chart.data = LineData(LineDataSet(entries,"Калории"))
                 chart.invalidate()

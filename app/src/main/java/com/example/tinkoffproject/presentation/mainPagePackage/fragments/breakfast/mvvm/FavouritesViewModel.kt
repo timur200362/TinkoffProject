@@ -17,7 +17,7 @@ class FavouritesViewModel @Inject constructor(
     private val _resultFavourite = MutableLiveData<List<MealBreakfast>>()
     val resultFavourite: LiveData<List<MealBreakfast>>
         get() = _resultFavourite
-    fun getFavourite():List<MealBreakfast> {
+    fun fetchFavourite(){
         viewModelScope.launch {
             _resultFavourite.value=getFavouriteMealBreakfastUseCase.execute()
         }
