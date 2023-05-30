@@ -7,7 +7,7 @@ import javax.inject.Inject
 class AddMealBreakfastUseCase @Inject constructor(
     private val mealBreakfastRepository: MealBreakfastRepository
 ) {
-    suspend fun execute(mealBreakfast: MealBreakfast){
+    suspend fun execute(mealBreakfast: MealBreakfast) {
         mealBreakfastRepository.insert(mealBreakfast)
     }
 }

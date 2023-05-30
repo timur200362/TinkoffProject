@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.MainPageViewModel
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.UIState
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
@@ -22,13 +19,14 @@ import java.util.*
 
 @AndroidEntryPoint
 class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
-    private lateinit var viewModel:MainPageViewModel
+    private lateinit var viewModel: MainPageViewModel
     private var binding: FragmentMainpageBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[MainPageViewModel::class.java]
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,26 +57,26 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
 
     override fun onResume() {
         super.onResume()
-        viewModel.resultMeal.observe(viewLifecycleOwner){
-            when(it){
-                is UIState.Fat -> TODO()
+        viewModel.resultMeal.observe(viewLifecycleOwner) {
+            when (it) {
                 is UIState.Protein -> {
-                    binding?.tvProteinInput?.text=it.value
+                    binding?.tvProteinInput?.text = it.value
+                }
+                is UIState.Fat -> {
+                    binding?.tvFatInput?.text = it.value
+                }
+                is UIState.Carbohydrates -> {
+                    binding?.tvCarbohydrateInput?.text = it.value
+                }
+                is UIState.Calories -> {
+                    binding?.tvCalories?.text = it.value
                 }
             }
         }
         viewModel.getProtein()
-    }
-
-    private fun getFromDatabase() {
-        lifecycleScope.launch {
-            binding?.run {
-                tvProteinInput.text = viewModel.getProtein().toString()
-//                tvFatInput.text = viewModel.getFat().toString()
-//                tvCarbohydrateInput.text = viewModel.getCarbohydrates().toString()
-//                tvCaloriesInput.text = viewModel.getCalories().toString()
-            }
-        }
+        viewModel.getFat()
+        viewModel.getCarbohydrates()
+        viewModel.getCalories()
     }
 
     private fun waterSum(waterNumber: Double) {

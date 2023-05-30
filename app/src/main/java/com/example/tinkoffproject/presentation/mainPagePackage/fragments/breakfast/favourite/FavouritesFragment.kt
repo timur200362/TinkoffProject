@@ -7,36 +7,36 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.data.database.mealDatabase.MealDatabase
 import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.BreakfastSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.MainPageFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.BreakfastSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.MainPageFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FavouritesViewModel
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private var binding: FragmentFavouritesBinding? = null
-    private lateinit var viewModel:FavouritesViewModel
-    private val adapter by lazy{
-    FavouriteAdapter(
-        Glide.with(this@FavouritesFragment)
-    ) { favourite ->
-        loadSearchFood(favourite.foodId.toDouble())
-    }}
+    private lateinit var viewModel: FavouritesViewModel
+    private val adapter by lazy {
+        FavouriteAdapter(
+            Glide.with(this@FavouritesFragment)
+        ) { favourite ->
+            loadSearchFood(favourite.foodId.toDouble())
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[FavouritesViewModel::class.java]
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouritesBinding.bind(view)
         binding?.run {
-            favouriteFoodList.adapter=adapter
+            favouriteFoodList.adapter = adapter
         }
         observeFavourite()
         lifecycleScope.launch {
@@ -44,8 +44,9 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
         }
         goToBreakfastSearch()
     }
-    private fun observeFavourite(){
-        viewModel.resultFavourite.observe(viewLifecycleOwner){
+
+    private fun observeFavourite() {
+        viewModel.resultFavourite.observe(viewLifecycleOwner) {
             adapter.update(it)
         }
     }

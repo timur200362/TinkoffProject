@@ -5,8 +5,8 @@ import javax.inject.Inject
 
 class UpdateFavouriteMealBreakfastUseCase @Inject constructor(
     private val mealBreakfastRepository: MealBreakfastRepository
-){
-    suspend fun execute(isFavourite:Boolean, id:Double){
-        mealBreakfastRepository.updateFavourite(isFavourite,id)
+) {
+    suspend fun execute(isFavourite: Boolean, id: Double) {
+        mealBreakfastRepository.updateFavourite(isFavourite, id)
     }
 }

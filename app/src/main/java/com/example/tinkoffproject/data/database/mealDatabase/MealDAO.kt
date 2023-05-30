@@ -19,5 +19,5 @@ interface MealDAO {
     suspend fun getFavourite(): List<MealBreakfast>
 
     @Query("SELECT * FROM MealBreakfast WHERE foodId=:id")
-    suspend fun getFavouriteById(id:Double):MealBreakfast
+    suspend fun getFavouriteById(id: Double): MealBreakfast
 }

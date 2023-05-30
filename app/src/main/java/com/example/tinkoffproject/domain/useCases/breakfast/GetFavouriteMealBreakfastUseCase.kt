@@ -7,7 +7,7 @@ import javax.inject.Inject
 class GetFavouriteMealBreakfastUseCase @Inject constructor(
     private val mealBreakfastRepository: MealBreakfastRepository
 ) {
-    suspend fun execute():List<MealBreakfast>{
+    suspend fun execute(): List<MealBreakfast> {
         return mealBreakfastRepository.getFavourite()
     }
 }

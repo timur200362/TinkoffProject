@@ -16,5 +16,5 @@ class MealBreakfastRepository @Inject constructor(
         mealDatabase.mealDao().updateFavourite(isFavourite, id)
 
     suspend fun getFavourite() = mealDatabase.mealDao().getFavourite()
-    suspend fun getFavouriteById(id:Double)=mealDatabase.mealDao().getFavouriteById(id)
+    suspend fun getFavouriteById(id: Double) = mealDatabase.mealDao().getFavouriteById(id)
 }

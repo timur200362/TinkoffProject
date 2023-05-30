@@ -11,7 +11,7 @@ class FavouriteAdapter(
     private val glide: RequestManager,
     private val action: (MealBreakfast) -> Unit
 ) : RecyclerView.Adapter<FavouriteItem>() {
-    private var list: List<MealBreakfast> =ArrayList()
+    private var list: List<MealBreakfast> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteItem =
         FavouriteItem(
             binding = ItemFavouritesBinding.inflate(
@@ -28,8 +28,8 @@ class FavouriteAdapter(
     }
 
     override fun getItemCount(): Int = list.size
-    fun update(list:List<MealBreakfast>){
-        this.list=list
+    fun update(list: List<MealBreakfast>) {
+        this.list = list
         notifyDataSetChanged()
     }
 

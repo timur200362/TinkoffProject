@@ -1,16 +1,14 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -100,7 +98,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
 
     private fun addFavourite() {
         binding.run {
-            viewModel.updateFavourite(isFavourite = true,tvId.text.toString().toDouble())
+            viewModel.updateFavourite(isFavourite = true, tvId.text.toString().toDouble())
         }
     }
 

@@ -18,7 +18,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
-    private lateinit var binding:FragmentStatisticsBinding
+    private lateinit var binding: FragmentStatisticsBinding
+
     @Inject
     lateinit var mealDatabase: MealDatabase
 
@@ -31,14 +32,14 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding=FragmentStatisticsBinding.bind(view)
+        binding = FragmentStatisticsBinding.bind(view)
         binding.run {
             lifecycleScope.launch {
-                val meals=mealDatabase.mealDao().getAll()
-                val entries=meals.map {meal->
-                    Entry(meal.foodId.toFloat(),meal.calories.toFloat())
+                val meals = mealDatabase.mealDao().getAll()
+                val entries = meals.map { meal ->
+                    Entry(meal.foodId.toFloat(), meal.calories.toFloat())
                 }
-                chart.data = LineData(LineDataSet(entries,"Калории"))
+                chart.data = LineData(LineDataSet(entries, "Калории"))
                 chart.invalidate()
             }
         }

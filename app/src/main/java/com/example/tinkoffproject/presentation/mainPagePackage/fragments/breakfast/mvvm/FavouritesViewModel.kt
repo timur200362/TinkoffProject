@@ -13,13 +13,14 @@ import javax.inject.Inject
 @HiltViewModel
 class FavouritesViewModel @Inject constructor(
     private val getFavouriteMealBreakfastUseCase: GetFavouriteMealBreakfastUseCase
-):ViewModel() {
+) : ViewModel() {
     private val _resultFavourite = MutableLiveData<List<MealBreakfast>>()
     val resultFavourite: LiveData<List<MealBreakfast>>
         get() = _resultFavourite
-    fun fetchFavourite(){
+
+    fun fetchFavourite() {
         viewModelScope.launch {
-            _resultFavourite.value=getFavouriteMealBreakfastUseCase.execute()
+            _resultFavourite.value = getFavouriteMealBreakfastUseCase.execute()
         }
     }
 }
