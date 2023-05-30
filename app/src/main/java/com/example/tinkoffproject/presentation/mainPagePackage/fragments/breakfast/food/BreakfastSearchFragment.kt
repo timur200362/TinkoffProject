@@ -30,7 +30,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         arguments?.getString("foodName")?.let {
         }
         binding?.run {
-            try {//TODO не уверен работает ли и вообще нужно оно или нет
+            try {
                 etFood.setOnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                         loadFood(etFood.text.toString())

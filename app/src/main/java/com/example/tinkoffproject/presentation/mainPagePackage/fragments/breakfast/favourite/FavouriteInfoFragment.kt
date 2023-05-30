@@ -34,10 +34,8 @@ class FavouriteInfoFragment : Fragment(R.layout.fragment_favouriteinfofragment) 
     }
 
     private fun loadFavouriteInfo(favouriteId: Double) {
-        lifecycleScope.launch {
-            binding?.run {
-                tvFoodNameInput.text = viewModel.fetchFavouriteInfoById(favouriteId).toString()
-            }
+        binding?.run {
+            tvFoodNameInput.text = viewModel.fetchFavouriteInfoById(favouriteId).toString()
         }
     }
 

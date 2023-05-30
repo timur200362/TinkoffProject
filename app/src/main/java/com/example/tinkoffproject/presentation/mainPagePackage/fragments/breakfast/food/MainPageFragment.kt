@@ -31,7 +31,6 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return FragmentMainpageBinding.inflate(inflater, container, false).let {
             binding = it
             it.root

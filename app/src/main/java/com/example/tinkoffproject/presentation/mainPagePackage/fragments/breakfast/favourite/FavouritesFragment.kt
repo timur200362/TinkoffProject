@@ -21,9 +21,9 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private lateinit var viewModel: FavouritesViewModel
     private val adapter by lazy {
         FavouriteAdapter(
-            Glide.with(this@FavouritesFragment)
+            Glide.with(this)
         ) { favourite ->
-            loadSearchFood(favourite.foodId.toDouble())
+            loadSearchFood(favourite.foodId)
         }
     }
 
@@ -39,9 +39,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
             favouriteFoodList.adapter = adapter
         }
         observeFavourite()
-        lifecycleScope.launch {
-            loadFavourite()
-        }
+        loadFavourite()
         goToBreakfastSearch()
     }
 
