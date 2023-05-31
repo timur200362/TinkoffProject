@@ -11,5 +11,6 @@ data class ProductFilter(
     val calories: String?,
     val sugar: String?,
     val importantBadges: List<String>,
-    val ingredientList: String
+    val ingredientList: String,
+    val image: String
 )

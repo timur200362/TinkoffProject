@@ -20,7 +20,8 @@ class GetProductInfoUseCase @Inject constructor(
                 calories = nutrition.nutrients.find { it.name == "Calories" }?.amount?.toString(),
                 sugar = nutrition.nutrients.find { it.name == "Sugar" }?.amount?.toString(),
                 importantBadges,
-                ingredientList
+                ingredientList,
+                image
             )
         }
     }

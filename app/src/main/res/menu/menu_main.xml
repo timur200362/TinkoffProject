@@ -9,10 +9,6 @@
         android:icon="@drawable/ic_baseline_statistic_16"
         android:title="Статистика" />
     <item
-        android:id="@+id/dietFragment"
-        android:icon="@drawable/ic_baseline_local_dining_16"
-        android:title="Питание" />
-    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_baseline_settings_16"
         android:title="Настройки" />

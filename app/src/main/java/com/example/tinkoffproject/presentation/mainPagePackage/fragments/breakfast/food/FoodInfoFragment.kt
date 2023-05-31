@@ -1,5 +1,6 @@
 package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -27,11 +28,7 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         binding = FragmentFoodinfoBinding.bind(view)
         arguments?.getInt("foodId")?.let { loadTitle(it) }
         viewModel.resultApi.observe(viewLifecycleOwner) {
-            showId(it.id)
-            showTitle(it.title)
             showNutrition(it)
-            showImportantBadges(it.importantBadges)
-            showIngredientList(it.ingredientList)
         }
         binding.run {
             btnAdd.setOnClickListener { _ ->
@@ -47,14 +44,10 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
         viewModel.getProductInfo(foodId)
     }
 
-    private fun showTitle(title: String) {
-        binding.tvFoodNameInput.run {
-            text = title
-        }
-    }
-
     private fun showNutrition(nutrition: ProductFilter) {
         binding.run {
+            tvId.text=nutrition.id.toString()
+            tvFoodNameInput.text=nutrition.title
             tvCalciumInput.text = nutrition.calcium
             tvCholesterolInput.text = nutrition.cholesterol
             tvFatInput.text = nutrition.fat
@@ -62,19 +55,9 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
             tvCarbohydratesInput.text = nutrition.carbohydrates
             tvCaloriesInput.text = nutrition.calories
             tvSugarInput.text = nutrition.sugar
+            tvBadgesInput.text = nutrition.importantBadges.toString()
+            tvIngredientsInput.text = nutrition.ingredientList
         }
-    }
-
-    private fun showImportantBadges(importantBadges: List<String>) {
-        binding.tvBadgesInput.text = importantBadges.toString()
-    }
-
-    private fun showIngredientList(ingredientList: String) {
-        binding.tvIngredientsInput.text = ingredientList
-    }
-
-    private fun showId(id: Double) {
-        binding.tvId.text = id.toString()
     }
 
     private fun addToDatabase() {

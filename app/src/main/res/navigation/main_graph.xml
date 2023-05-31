@@ -16,11 +16,6 @@
         android:label="StatisticsFragment"
         tools:layout="@layout/fragment_statistics" />
     <fragment
-        android:id="@+id/dietFragment"
-        android:name="com.example.tinkoffproject.presentation.dietPagePackage.DietFragment"
-        android:label="DietFragment"
-        tools:layout="@layout/fragment_diet" />
-    <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.tinkoffproject.presentation.settingsPagePackage.SettingsFragment"
         android:label="SettingsFragment"
