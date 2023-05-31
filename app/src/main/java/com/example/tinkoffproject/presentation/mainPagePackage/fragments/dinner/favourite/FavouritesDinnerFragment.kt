@@ -1,26 +1,25 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteAdapter
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model.FavouriteBreakfastAdapter
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.BreakfastSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.MainPageFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FavouritesViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.MainPageFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FavouritesBreakfastViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food.DinnerSearchFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
+class FavouritesDinnerFragment : Fragment(R.layout.fragment_favourites) {
     private var binding: FragmentFavouritesBinding? = null
-    private lateinit var viewModel: FavouritesViewModel
+    private lateinit var viewModel: FavouritesBreakfastViewModel
     private val adapter by lazy {
-        FavouriteAdapter(
+        FavouriteBreakfastAdapter(
             Glide.with(this)
         ) { favourite ->
             loadSearchFood(favourite.foodId)
@@ -29,7 +28,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[FavouritesViewModel::class.java]
+        viewModel = ViewModelProvider(this)[FavouritesBreakfastViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +39,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
         }
         observeFavourite()
         loadFavourite()
-        goToBreakfastSearch()
+        goToDinnerSearch()
     }
 
     private fun observeFavourite() {
@@ -60,22 +59,22 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.container,
-                    FavouriteInfoFragment.getInstance(bundle),
-                    FavouriteInfoFragment.FavouriteInfoFragment_TAG
+                    FavouriteInfoDinnerFragment.getInstance(bundle),
+                    FavouriteInfoDinnerFragment.FavouriteInfoFragment_TAG
                 )
                 .commit()
         }
     }
 
-    private fun goToBreakfastSearch() {
+    private fun goToDinnerSearch() {
         binding?.run {
             btnGoToSearchFood.setOnClickListener {
                 val bundle = Bundle()
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.container,
-                        BreakfastSearchFragment.getInstance(bundle),
-                        BreakfastSearchFragment.BreakfastSearchFragment_TAG
+                        DinnerSearchFragment.getInstance(bundle),
+                        DinnerSearchFragment.DinnerSearchFragment_TAG
                     )
                     .addToBackStack(MainPageFragment.MainPageFragment_TAG)
                     .commit()
@@ -85,8 +84,8 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
     companion object {
         const val FavouritesFragment_TAG = "FavouritesFragment_TAG"
-        fun getInstance(bundle: Bundle?): FavouritesFragment {
-            val favouritesFragment = FavouritesFragment()
+        fun getInstance(bundle: Bundle?): FavouritesDinnerFragment {
+            val favouritesFragment = FavouritesDinnerFragment()
             favouritesFragment.arguments = bundle
             return favouritesFragment
         }

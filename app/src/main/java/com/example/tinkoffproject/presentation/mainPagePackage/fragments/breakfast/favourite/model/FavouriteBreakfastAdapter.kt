@@ -7,13 +7,13 @@ import com.bumptech.glide.RequestManager
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
 import com.example.tinkoffproject.databinding.ItemFavouritesBinding
 
-class FavouriteAdapter(
+class FavouriteBreakfastAdapter(
     private val glide: RequestManager,
     private val action: (MealBreakfast) -> Unit
-) : RecyclerView.Adapter<FavouriteItem>() {
+) : RecyclerView.Adapter<FavouriteBreakfastItem>() {
     private var list: List<MealBreakfast> = ArrayList()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteItem =
-        FavouriteItem(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteBreakfastItem =
+        FavouriteBreakfastItem(
             binding = ItemFavouritesBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -23,7 +23,7 @@ class FavouriteAdapter(
             action = action
         )
 
-    override fun onBindViewHolder(holder: FavouriteItem, position: Int) {
+    override fun onBindViewHolder(holder: FavouriteBreakfastItem, position: Int) {
         holder.onBind(list[position])
     }
 

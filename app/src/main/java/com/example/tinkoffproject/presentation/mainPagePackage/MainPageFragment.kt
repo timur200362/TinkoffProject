@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
+package com.example.tinkoffproject.presentation.mainPagePackage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.MainPageViewModel
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.DinnerSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.BreakfastSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import java.util.*
 
 @AndroidEntryPoint
@@ -68,7 +66,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                     binding?.tvCarbohydrateInput?.text = it.value
                 }
                 is UIState.Calories -> {
-                    binding?.tvCalories?.text = it.value
+                    binding?.tvCaloriesInput?.text = it.value
                 }
             }
         }
@@ -76,6 +74,26 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         viewModel.getFat()
         viewModel.getCarbohydrates()
         viewModel.getCalories()
+        viewModel.resultMealDinner.observe(viewLifecycleOwner) {
+            when (it) {
+                is UIState.Protein -> {
+                    binding?.tvProteinDinnerInput?.text=it.value
+                }
+                is UIState.Fat -> {
+                    binding?.tvFatDinnerInput?.text = it.value
+                }
+                is UIState.Carbohydrates -> {
+                    binding?.tvCarbohydrateDinnerInput?.text = it.value
+                }
+                is UIState.Calories -> {
+                    binding?.tvCaloriesDinnerInput?.text = it.value
+                }
+            }
+        }
+        viewModel.getProteinDinner()
+        viewModel.getFatDinner()
+        viewModel.getCarbohydratesDinner()
+        viewModel.getCaloriesDinner()
     }
 
     private fun waterSum(waterNumber: Double) {

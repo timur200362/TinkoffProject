@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
+package com.example.tinkoffproject.presentation.mainPagePackage
 
 sealed interface UIState {
     class Protein(

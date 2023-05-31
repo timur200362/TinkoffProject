@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food
 
 import android.os.Bundle
 import android.view.View
@@ -8,25 +8,27 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.databinding.FragmentBreakfastsearchBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.FavouritesBreakfastFragment
+import com.example.tinkoffproject.databinding.FragmentDinnersearchBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.BreakfastSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite.FavouritesDinnerFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.mvvm.DinnerSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
-    private lateinit var viewModel: BreakfastSearchViewModel
-    private var binding: FragmentBreakfastsearchBinding? = null
+class DinnerSearchFragment : Fragment(R.layout.fragment_dinnersearch) {
+    private lateinit var viewModel: DinnerSearchViewModel
+    private var binding: FragmentDinnersearchBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[BreakfastSearchViewModel::class.java]
+        viewModel = ViewModelProvider(this)[DinnerSearchViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentBreakfastsearchBinding.bind(view)
+        binding = FragmentDinnersearchBinding.bind(view)
         arguments?.getString("foodName")?.let {
         }
         binding?.run {
@@ -53,7 +55,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         viewModel.getApi(query)
         viewModel.resultApi.observe(viewLifecycleOwner) {
             binding?.foodList?.adapter =
-                FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
+                FoodAdapter(it, Glide.with(this)) { product ->
                     loadFoodInfo(product.id)
                 }
         }
@@ -66,8 +68,8 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(
                 R.id.container,
-                FoodInfoFragment.getInstance(bundle),
-                FoodInfoFragment.FoodInfoFragment_TAG
+                DinnerInfoFragment.getInstance(bundle),
+                DinnerInfoFragment.DinnerInfoFragment_TAG
             )
             .addToBackStack(null)
             .commit()
@@ -80,8 +82,8 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.container,
-                        FavouritesBreakfastFragment.getInstance(bundle),
-                        FavouritesBreakfastFragment.FavouritesFragment_TAG
+                        FavouritesDinnerFragment.getInstance(bundle),
+                        FavouritesDinnerFragment.FavouritesFragment_TAG
                     )
                     .addToBackStack(null)
                     .commit()
@@ -90,11 +92,11 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
     }
 
     companion object {
-        const val BreakfastSearchFragment_TAG = "BreakfastSearchFragment_TAG"
-        fun getInstance(bundle: Bundle?): BreakfastSearchFragment {
-            val breakfastSearchFragment = BreakfastSearchFragment()
-            breakfastSearchFragment.arguments = bundle
-            return breakfastSearchFragment
+        const val DinnerSearchFragment_TAG = "DinnerSearchFragment_TAG"
+        fun getInstance(bundle: Bundle?): DinnerSearchFragment {
+            val dinnerSearchFragment = DinnerSearchFragment()
+            dinnerSearchFragment.arguments = bundle
+            return dinnerSearchFragment
         }
     }
 }

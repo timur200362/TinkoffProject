@@ -1,16 +1,17 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.favourite.model
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite.model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
+import com.example.tinkoffproject.data.database.mealDatabase.MealDinner
 import com.example.tinkoffproject.databinding.ItemFavouritesBinding
 
-class FavouriteItem(
+class FavouriteDinnerItem(
     private val binding: ItemFavouritesBinding,
     private val glide: RequestManager,
-    private val action: (MealBreakfast) -> Unit
+    private val action: (MealDinner) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun onBind(food: MealBreakfast) {
+    fun onBind(food: MealDinner) {
         with(binding) {
             tvFavouriteFoodName.text = food.title
 

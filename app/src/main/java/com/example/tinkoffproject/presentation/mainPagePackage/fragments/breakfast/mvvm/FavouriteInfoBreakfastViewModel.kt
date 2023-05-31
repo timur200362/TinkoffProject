@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FavouriteInfoViewModel @Inject constructor(
+class FavouriteInfoBreakfastViewModel @Inject constructor(
     private val getFavouriteByIdMealBreakfastUseCase: GetFavouriteByIdMealBreakfastUseCase
 ):ViewModel() {
     private val _resultFavourite = MutableLiveData<MealBreakfast>()

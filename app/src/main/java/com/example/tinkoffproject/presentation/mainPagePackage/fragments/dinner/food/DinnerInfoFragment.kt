@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food
 
 import android.os.Bundle
 import android.view.View
@@ -6,25 +6,25 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
-import com.example.tinkoffproject.databinding.FragmentFoodinfoBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.mvvm.FoodInfoViewModel
+import com.example.tinkoffproject.databinding.FragmentDinnerinfoBinding
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.mvvm.DinnerInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 
 @AndroidEntryPoint
-class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
-    private lateinit var viewModel: FoodInfoViewModel
-    private lateinit var binding: FragmentFoodinfoBinding
+class DinnerInfoFragment : Fragment(R.layout.fragment_dinnerinfo) {
+    private lateinit var viewModel: DinnerInfoViewModel
+    private lateinit var binding: FragmentDinnerinfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[FoodInfoViewModel::class.java]
+        viewModel = ViewModelProvider(this)[DinnerInfoViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentFoodinfoBinding.bind(view)
+        binding = FragmentDinnerinfoBinding.bind(view)
         arguments?.getInt("foodId")?.let { loadTitle(it) }
         viewModel.resultApi.observe(viewLifecycleOwner) {
             showNutrition(it)
@@ -85,11 +85,11 @@ class FoodInfoFragment : Fragment(R.layout.fragment_foodinfo) {
     }
 
     companion object {
-        const val FoodInfoFragment_TAG = "FoodInfoFragment_TAG"
-        fun getInstance(bundle: Bundle?): FoodInfoFragment {
-            val foodInfoFragment = FoodInfoFragment()
-            foodInfoFragment.arguments = bundle
-            return foodInfoFragment
+        const val DinnerInfoFragment_TAG = "DinnerInfoFragment_TAG"
+        fun getInstance(bundle: Bundle?): DinnerInfoFragment {
+            val dinnerInfoFragment = DinnerInfoFragment()
+            dinnerInfoFragment.arguments = bundle
+            return dinnerInfoFragment
         }
     }
 }

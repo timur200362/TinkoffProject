@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.example.tinkoffproject.presentation.Converter
 
 @TypeConverters(Converter::class)
-@Database(entities = [MealBreakfast::class], version = 5)
+@Database(entities = [MealBreakfast::class,MealDinner::class], version = 6)
 abstract class MealDatabase : RoomDatabase() {
     abstract fun mealDao(): MealDAO
 
