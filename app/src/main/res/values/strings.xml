@@ -39,4 +39,10 @@
     <string name="search">Поиск</string>
     <string name="dinner">Обед</string>
     <string name="nightDinner">Ужин</string>
+    <string-array name="graphics_array">
+        <item>Калории</item>
+        <item>Жиры</item>
+        <item>Белки</item>
+        <item>Углеводы</item>
+    </string-array>
 </resources>

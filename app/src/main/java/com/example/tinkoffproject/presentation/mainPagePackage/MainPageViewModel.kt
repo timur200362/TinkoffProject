@@ -15,7 +15,7 @@ import javax.inject.Inject
 class MainPageViewModel @Inject constructor(
     private val getAllMealBreakfastUseCase:GetAllMealBreakfastUseCase,
     private val getAllMealDinnerUseCase: GetAllMealDinnerUseCase,
-    private val getAllMealNightDinnerUseCase: GetAllMealNightDinnerUseCase
+    private val getAllMealNightDinnerUseCase: GetAllMealNightDinnerUseCase,
 ) : ViewModel() {
 
     private val _resultMeal = MutableLiveData<UIState>()

@@ -24,15 +24,21 @@ class FavouriteInfoDinnerFragment : Fragment(R.layout.fragment_favouriteinfofrag
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouriteinfofragmentBinding.bind(view)
         arguments?.getDouble("favouriteId")?.let {
-            viewModel.resultFavourite.observe(viewLifecycleOwner) { _ ->
-                loadFavouriteInfo(it)
+            viewModel.resultFavourite.observe(viewLifecycleOwner) { meal ->
+                binding?.run {
+                    tvFoodNameInput.text = meal.title
+                    tvCalciumInput.text = meal.calcium.toString()
+                    tvCholesterolInput.text = meal.cholesterol.toString()
+                    tvFatInput.text = meal.fat.toString()
+                    tvProteinInput.text = meal.protein.toString()
+                    tvCarbohydratesInput.text = meal.carbohydrates.toString()
+                    tvCaloriesInput.text = meal.calories.toString()
+                    tvSugarInput.text = meal.sugar.toString()
+                    tvBadgesInput.text = meal.importantBadges
+                    tvIngredientsInput.text = meal.ingredients
+                }
             }
-        }
-    }
-
-    private fun loadFavouriteInfo(favouriteId: Double) {
-        binding?.run {
-            tvFoodNameInput.text = viewModel.fetchFavouriteInfoById(favouriteId).toString()
+            viewModel.fetchFavouriteInfoById(it).toString()
         }
     }
 

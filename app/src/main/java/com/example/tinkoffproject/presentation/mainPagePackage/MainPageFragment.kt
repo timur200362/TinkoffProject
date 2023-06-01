@@ -112,7 +112,9 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         viewModel.getFatNightDinner()
         viewModel.getCarbohydratesNightDinner()
         viewModel.getCaloriesNightDinner()
+
     }
+
 
     private fun waterSum(waterNumber: Double) {
         binding?.run {
@@ -131,7 +133,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                         BreakfastSearchFragment.getInstance(bundle),
                         BreakfastSearchFragment.BreakfastSearchFragment_TAG
                     )
-                    .addToBackStack(MainPageFragment_TAG)
+                    .addToBackStack(null)
                     .commit()
             }
         }
@@ -147,7 +149,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                         DinnerSearchFragment.getInstance(bundle),
                         DinnerSearchFragment.DinnerSearchFragment_TAG
                     )
-                    .addToBackStack(MainPageFragment_TAG)
+                    .addToBackStack(null)
                     .commit()
             }
         }
@@ -163,7 +165,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
                         NightDinnerSearchFragment.getInstance(bundle),
                         NightDinnerSearchFragment.NightDinnerSearchFragment_TAG
                     )
-                    .addToBackStack(MainPageFragment_TAG)
+                    .addToBackStack(null)
                     .commit()
             }
         }

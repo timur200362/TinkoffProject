@@ -75,7 +75,7 @@ class FavouritesDinnerFragment : Fragment(R.layout.fragment_favourites) {
                         DinnerSearchFragment.getInstance(bundle),
                         DinnerSearchFragment.DinnerSearchFragment_TAG
                     )
-                    .addToBackStack(MainPageFragment.MainPageFragment_TAG)
+                    .addToBackStack(null)
                     .commit()
             }
         }

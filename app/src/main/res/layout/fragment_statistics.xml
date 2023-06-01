@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/yellow">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Статистика"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="Статистика"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:id="@+id/graphics_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartBreakfast"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/graphics_spinner"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartDinner"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/chartBreakfast"
+            app:layout_constraintStart_toStartOf="@+id/chartBreakfast"
+            app:layout_constraintTop_toBottomOf="@+id/chartBreakfast" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartNightDinner"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/chartDinner"
+            app:layout_constraintStart_toStartOf="@+id/chartDinner"
+            app:layout_constraintTop_toBottomOf="@+id/chartDinner" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

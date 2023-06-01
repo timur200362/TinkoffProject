@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/yellow">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -327,7 +328,7 @@
             android:id="@+id/btn_badges"
             android:layout_width="390dp"
             android:layout_height="200dp"
-            android:background="@drawable/circle_grey"
+            android:background="@drawable/circle_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_badges" />
@@ -356,7 +357,7 @@
             android:id="@+id/btn_ingredients"
             android:layout_width="390dp"
             android:layout_height="200dp"
-            android:background="@drawable/circle_grey"
+            android:background="@drawable/circle_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_ingredients" />
