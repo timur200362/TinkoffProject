@@ -1,13 +1,13 @@
 package com.example.tinkoffproject.domain.useCases.nightDinner
 
-import com.example.tinkoffproject.data.database.mealDatabase.MealBreakfast
-import com.example.tinkoffproject.data.repository.MealBreakfastRepository
+import com.example.tinkoffproject.data.database.mealDatabase.MealNightDinner
+import com.example.tinkoffproject.data.repository.MealNightDinnerRepository
 import javax.inject.Inject
 
 class GetFavouriteMealNightDinnerUseCase @Inject constructor(
-    private val mealBreakfastRepository: MealBreakfastRepository
+    private val mealNightDinnerRepository: MealNightDinnerRepository
 ) {
-    suspend fun execute(): List<MealBreakfast> {
-        return mealBreakfastRepository.getFavourite()
+    suspend fun execute(): List<MealNightDinner> {
+        return mealNightDinnerRepository.getFavourite()
     }
 }

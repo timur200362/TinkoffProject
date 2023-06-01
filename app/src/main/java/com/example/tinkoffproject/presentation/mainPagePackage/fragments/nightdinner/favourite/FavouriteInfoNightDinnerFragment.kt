@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.favourite
 
 import android.os.Bundle
 import android.view.View
@@ -6,18 +6,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentFavouriteinfofragmentBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.mvvm.FavouriteInfoDinnerViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.mvvm.FavouriteInfoNightDinnerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class FavouriteInfoDinnerFragment : Fragment(R.layout.fragment_favouriteinfofragment) {
-    private lateinit var viewModel: FavouriteInfoDinnerViewModel
+class FavouriteInfoNightDinnerFragment : Fragment(R.layout.fragment_favouriteinfofragment) {
+    private lateinit var viewModel: FavouriteInfoNightDinnerViewModel
     private var binding: FragmentFavouriteinfofragmentBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[FavouriteInfoDinnerViewModel::class.java]
+        viewModel = ViewModelProvider(this)[FavouriteInfoNightDinnerViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,11 +37,11 @@ class FavouriteInfoDinnerFragment : Fragment(R.layout.fragment_favouriteinfofrag
     }
 
     companion object {
-        const val FavouriteInfoDinnerFragment_TAG = "FavouriteInfoDinnerFragment_TAG"
-        fun getInstance(bundle: Bundle?): FavouriteInfoDinnerFragment {
-            val favouriteInfoDinnerFragment = FavouriteInfoDinnerFragment()
-            favouriteInfoDinnerFragment.arguments = bundle
-            return favouriteInfoDinnerFragment
+        const val FavouriteInfoNightDinnerFragment_TAG = "FavouriteInfoNightDinnerFragment_TAG"
+        fun getInstance(bundle: Bundle?): FavouriteInfoNightDinnerFragment {
+            val favouriteInfoNightDinnerFragment = FavouriteInfoNightDinnerFragment()
+            favouriteInfoNightDinnerFragment.arguments = bundle
+            return favouriteInfoNightDinnerFragment
         }
     }
 }

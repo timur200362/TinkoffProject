@@ -1,6 +1,5 @@
 package com.example.tinkoffproject.domain.useCases.dinner
 
-import com.example.tinkoffproject.data.repository.MealBreakfastRepository
 import com.example.tinkoffproject.data.repository.MealDinnerRepository
 import javax.inject.Inject
 

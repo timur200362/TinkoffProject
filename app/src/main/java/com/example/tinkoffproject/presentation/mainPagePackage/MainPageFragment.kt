@@ -10,8 +10,7 @@ import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentMainpageBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food.BreakfastSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food.DinnerSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.NightDinnerSearchFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.snacks.SnacksSearchFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.food.NightDinnerSearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -48,7 +47,6 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
             addBreakfast()
             addDinner()
             addNightDinner()
-            addSnacks()
         }
     }
 
@@ -77,7 +75,7 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         viewModel.resultMealDinner.observe(viewLifecycleOwner) {
             when (it) {
                 is UIState.Protein -> {
-                    binding?.tvProteinDinnerInput?.text=it.value
+                    binding?.tvProteinDinnerInput?.text = it.value
                 }
                 is UIState.Fat -> {
                     binding?.tvFatDinnerInput?.text = it.value
@@ -94,6 +92,26 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         viewModel.getFatDinner()
         viewModel.getCarbohydratesDinner()
         viewModel.getCaloriesDinner()
+        viewModel.resultMealNightDinner.observe(viewLifecycleOwner) {
+            when (it) {
+                is UIState.Protein -> {
+                    binding?.tvProteinNightDinnerInput?.text = it.value
+                }
+                is UIState.Fat -> {
+                    binding?.tvFatNightDinnerInput?.text = it.value
+                }
+                is UIState.Carbohydrates -> {
+                    binding?.tvCarbohydrateNightDinnerInput?.text = it.value
+                }
+                is UIState.Calories -> {
+                    binding?.tvCaloriesNightDinnerInput?.text = it.value
+                }
+            }
+        }
+        viewModel.getProteinNightDinner()
+        viewModel.getFatNightDinner()
+        viewModel.getCarbohydratesNightDinner()
+        viewModel.getCaloriesNightDinner()
     }
 
     private fun waterSum(waterNumber: Double) {
@@ -151,21 +169,6 @@ class MainPageFragment : Fragment(R.layout.fragment_mainpage) {
         }
     }
 
-    private fun addSnacks() {
-        binding?.run {
-            ivAddSnack.setOnClickListener {
-                val bundle = Bundle()
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.container,
-                        SnacksSearchFragment.getInstance(bundle),
-                        SnacksSearchFragment.SnacksSearchFragment_TAG
-                    )
-                    .addToBackStack(MainPageFragment_TAG)
-                    .commit()
-            }
-        }
-    }
 
     companion object {
         const val MainPageFragment_TAG = "MainPageFragment_TAG"

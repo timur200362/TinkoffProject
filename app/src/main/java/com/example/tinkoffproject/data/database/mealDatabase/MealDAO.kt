@@ -27,14 +27,34 @@ interface MealDAO {
     suspend fun insertDinner(mealDinner: MealDinner)
 
     @Query("SELECT * FROM MealDinner")
+
     suspend fun getAllDinner(): List<MealDinner>
 
     @Query("UPDATE MealDinner SET isFavourite=:isFavourite WHERE foodId=:id")
+
     suspend fun updateFavouriteDinner(isFavourite: Boolean, id: Double)
 
     @Query("SELECT * FROM MealDinner WHERE isFavourite=true")
+
     suspend fun getFavouriteDinner(): List<MealDinner>
 
     @Query("SELECT * FROM MealDinner WHERE foodId=:id")
+
     suspend fun getFavouriteByIdDinner(id: Double): MealDinner
+
+    //NightDinner
+    @Insert
+    suspend fun insertNightDinner(mealNightDinner: MealNightDinner)
+
+    @Query("SELECT * FROM MealNightDinner")
+    suspend fun getAllNightDinner(): List<MealNightDinner>
+
+    @Query("UPDATE MealNightDinner SET isFavourite=:isFavourite WHERE foodId=:id")
+    suspend fun updateFavouriteNightDinner(isFavourite: Boolean, id: Double)
+
+    @Query("SELECT * FROM MealNightDinner WHERE isFavourite=true")
+    suspend fun getFavouriteNightDinner(): List<MealNightDinner>
+
+    @Query("SELECT * FROM MealNightDinner WHERE foodId=:id")
+    suspend fun getFavouriteByIdNightDinner(id: Double): MealNightDinner
 }

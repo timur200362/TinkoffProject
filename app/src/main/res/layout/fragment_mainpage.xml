@@ -455,7 +455,7 @@
         <ImageButton
             android:id="@+id/btn_dinnerEvening"
             android:layout_width="380dp"
-            android:layout_height="87dp"
+            android:layout_height="140dp"
             android:background="@drawable/circle"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -502,79 +502,84 @@
             app:layout_constraintStart_toStartOf="@+id/img_dinnerEvening"
             app:layout_constraintTop_toBottomOf="@+id/img_dinnerEvening"
             app:layout_constraintEnd_toEndOf="@+id/iv_addDinnerEvening" />
-
         <TextView
-            android:id="@+id/tv_kkalDinnerEvening"
+            android:id="@+id/tv_proteinNightDinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/protein"
             android:textColor="@color/black"
-            android:text="test"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_dinnerEvening"
-            app:layout_constraintEnd_toEndOf="@+id/v_dinnerEvening"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@+id/v_dinnerEvening"
             app:layout_constraintTop_toBottomOf="@+id/v_dinnerEvening" />
 
-
-        <ImageButton
-            android:id="@+id/btn_snack"
-            android:layout_width="380dp"
-            android:layout_height="87dp"
-            android:background="@drawable/circle"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_dinnerEvening" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_snack"
-            android:layout_width="50dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/fruits"
-            app:layout_constraintStart_toStartOf="@+id/btn_snack"
-            app:layout_constraintTop_toTopOf="@+id/btn_snack" />
-
         <TextView
-            android:id="@+id/tv_snack"
+            android:id="@+id/tv_proteinNightDinnerInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="@string/snacks"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_snack"
-            app:layout_constraintStart_toEndOf="@+id/img_totalDrunk"
-            app:layout_constraintTop_toTopOf="@+id/img_snack" />
-
-        <ImageView
-            android:id="@+id/iv_addSnack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:src="@drawable/ic_baseline_add_circle_outline_16"
-            app:layout_constraintBottom_toBottomOf="@+id/img_snack"
-            app:layout_constraintEnd_toEndOf="@+id/btn_snack"
-            app:layout_constraintTop_toTopOf="@+id/img_snack" />
-
-        <View
-            android:id="@+id/v_snack"
-            android:layout_width="330dp"
-            android:layout_height="4dp"
-            android:src="@drawable/circle"
-            android:background="@color/grey"
-            app:layout_constraintStart_toStartOf="@+id/img_snack"
-            app:layout_constraintTop_toBottomOf="@+id/img_snack"
-            app:layout_constraintEnd_toEndOf="@+id/iv_addSnack" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_proteinNightDinner"
+            app:layout_constraintStart_toStartOf="@+id/tv_proteinNightDinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_proteinNightDinner" />
 
         <TextView
-            android:id="@+id/tv_kkalSnack"
+            android:id="@+id/tv_fatNightDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fat"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/tv_carbohydrateNightDinner"
+            app:layout_constraintStart_toEndOf="@+id/tv_proteinNightDinner"
+            app:layout_constraintTop_toTopOf="@+id/tv_proteinNightDinner" />
+
+        <TextView
+            android:id="@+id/tv_fatNightDinnerInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="test"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_snack"
-            app:layout_constraintEnd_toEndOf="@+id/v_snack"
-            app:layout_constraintStart_toStartOf="@+id/v_snack"
-            app:layout_constraintTop_toBottomOf="@+id/v_snack" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_fatNightDinner"
+            app:layout_constraintStart_toStartOf="@+id/tv_fatNightDinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fatNightDinner" />
+
+        <TextView
+            android:id="@+id/tv_carbohydrateNightDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/carbohydrate"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/v_dinnerEvening"
+            app:layout_constraintTop_toBottomOf="@+id/v_dinnerEvening" />
+
+        <TextView
+            android:id="@+id/tv_carbohydrateNightDinnerInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tv_carbohydrateNightDinner"
+            app:layout_constraintStart_toStartOf="@+id/tv_carbohydrateNightDinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_carbohydrateNightDinner" />
+
+        <TextView
+            android:id="@+id/tv_caloriesNightDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/calories"
+            android:textColor="@color/black"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_fatNightDinner"
+            app:layout_constraintStart_toStartOf="@+id/tv_fatNightDinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fatNightDinnerInput" />
+
+        <TextView
+            android:id="@+id/tv_caloriesNightDinnerInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginStart="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_caloriesNightDinner"
+            app:layout_constraintStart_toEndOf="@+id/tv_caloriesNightDinner"
+            app:layout_constraintTop_toTopOf="@+id/tv_caloriesNightDinner" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

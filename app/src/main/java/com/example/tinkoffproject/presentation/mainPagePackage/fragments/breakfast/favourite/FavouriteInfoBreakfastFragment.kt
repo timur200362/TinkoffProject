@@ -12,19 +12,19 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FavouriteInfoBreakfastFragment : Fragment(R.layout.fragment_favouriteinfofragment) {
-    private lateinit var viewModel:FavouriteInfoBreakfastViewModel
+    private lateinit var viewModel: FavouriteInfoBreakfastViewModel
     private var binding: FragmentFavouriteinfofragmentBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel=ViewModelProvider(this)[FavouriteInfoBreakfastViewModel::class.java]
+        viewModel = ViewModelProvider(this)[FavouriteInfoBreakfastViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFavouriteinfofragmentBinding.bind(view)
         arguments?.getDouble("favouriteId")?.let {
-            viewModel.resultFavourite.observe(viewLifecycleOwner){ _ ->
+            viewModel.resultFavourite.observe(viewLifecycleOwner) { _ ->
                 loadFavouriteInfo(it)
             }
         }

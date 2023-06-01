@@ -45,8 +45,8 @@ class DinnerInfoFragment : Fragment(R.layout.fragment_dinnerinfo) {
 
     private fun showNutrition(nutrition: ProductFilter) {
         binding.run {
-            tvId.text=nutrition.id.toString()
-            tvFoodNameInput.text=nutrition.title
+            tvId.text = nutrition.id.toString()
+            tvFoodNameInput.text = nutrition.title
             tvCalciumInput.text = nutrition.calcium
             tvCholesterolInput.text = nutrition.cholesterol
             tvFatInput.text = nutrition.fat

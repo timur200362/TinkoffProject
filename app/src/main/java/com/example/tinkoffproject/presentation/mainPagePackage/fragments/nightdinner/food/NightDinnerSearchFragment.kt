@@ -1,4 +1,4 @@
-package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food
+package com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.food
 
 import android.os.Bundle
 import android.view.View
@@ -8,26 +8,27 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
-import com.example.tinkoffproject.databinding.FragmentDinnersearchBinding
+import com.example.tinkoffproject.databinding.FragmentNightdinnersearchBinding
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite.FavouritesDinnerFragment
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.mvvm.DinnerSearchViewModel
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.favourite.FavouritesNightDinnerFragment
+import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.mvvm.NightDinnerSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class DinnerSearchFragment : Fragment(R.layout.fragment_dinnersearch) {
-    private lateinit var viewModel: DinnerSearchViewModel
-    private var binding: FragmentDinnersearchBinding? = null
+class NightDinnerSearchFragment : Fragment(R.layout.fragment_nightdinnersearch) {
+    private lateinit var viewModel: NightDinnerSearchViewModel
+    private var binding: FragmentNightdinnersearchBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[DinnerSearchViewModel::class.java]
+        viewModel = ViewModelProvider(this)[NightDinnerSearchViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentDinnersearchBinding.bind(view)
+        binding = FragmentNightdinnersearchBinding.bind(view)
         arguments?.getString("foodName")?.let {
         }
         binding?.run {
@@ -67,8 +68,8 @@ class DinnerSearchFragment : Fragment(R.layout.fragment_dinnersearch) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(
                 R.id.container,
-                DinnerInfoFragment.getInstance(bundle),
-                DinnerInfoFragment.DinnerInfoFragment_TAG
+                NightDinnerInfoFragment.getInstance(bundle),
+                NightDinnerInfoFragment.NightDinnerInfoFragment_TAG
             )
             .addToBackStack(null)
             .commit()
@@ -81,8 +82,8 @@ class DinnerSearchFragment : Fragment(R.layout.fragment_dinnersearch) {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.container,
-                        FavouritesDinnerFragment.getInstance(bundle),
-                        FavouritesDinnerFragment.FavouritesDinnerFragment_TAG
+                        FavouritesNightDinnerFragment.getInstance(bundle),
+                        FavouritesNightDinnerFragment.FavouritesNightDinnerFragment_TAG
                     )
                     .addToBackStack(null)
                     .commit()
@@ -91,11 +92,11 @@ class DinnerSearchFragment : Fragment(R.layout.fragment_dinnersearch) {
     }
 
     companion object {
-        const val DinnerSearchFragment_TAG = "DinnerSearchFragment_TAG"
-        fun getInstance(bundle: Bundle?): DinnerSearchFragment {
-            val dinnerSearchFragment = DinnerSearchFragment()
-            dinnerSearchFragment.arguments = bundle
-            return dinnerSearchFragment
+        const val NightDinnerSearchFragment_TAG = "NightDinnerSearchFragment_TAG"
+        fun getInstance(bundle: Bundle?): NightDinnerSearchFragment {
+            val nightDinnerSearchFragment = NightDinnerSearchFragment()
+            nightDinnerSearchFragment.arguments = bundle
+            return nightDinnerSearchFragment
         }
     }
 }

@@ -6,21 +6,29 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tinkoffproject.domain.useCases.breakfast.GetAllMealBreakfastUseCase
 import com.example.tinkoffproject.domain.useCases.dinner.GetAllMealDinnerUseCase
+import com.example.tinkoffproject.domain.useCases.nightDinner.GetAllMealNightDinnerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainPageViewModel @Inject constructor(
-    private val getAllMealBreakfastUseCase: GetAllMealBreakfastUseCase,
-    private val getAllMealDinnerUseCase: GetAllMealDinnerUseCase
+    private val getAllMealBreakfastUseCase:GetAllMealBreakfastUseCase,
+    private val getAllMealDinnerUseCase: GetAllMealDinnerUseCase,
+    private val getAllMealNightDinnerUseCase: GetAllMealNightDinnerUseCase
 ) : ViewModel() {
+
     private val _resultMeal = MutableLiveData<UIState>()
     val resultMeal: LiveData<UIState>
         get() = _resultMeal
+
     private val _resultMealDinner = MutableLiveData<UIState>()
     val resultMealDinner: LiveData<UIState>
         get() = _resultMealDinner
+
+    private val _resultMealNightDinner = MutableLiveData<UIState>()
+    val resultMealNightDinner: LiveData<UIState>
+        get() = _resultMealNightDinner
 
     fun getProtein() {
         viewModelScope.launch {
@@ -69,6 +77,31 @@ class MainPageViewModel @Inject constructor(
     fun getCaloriesDinner() {
         viewModelScope.launch {
             _resultMealDinner.value = UIState.Calories(getAllMealDinnerUseCase.executeCalories())
+        }
+    }
+
+    fun getProteinNightDinner() {
+        viewModelScope.launch {
+            _resultMealNightDinner.value = UIState.Protein(getAllMealNightDinnerUseCase.executeProtein())
+        }
+    }
+
+    fun getFatNightDinner() {
+        viewModelScope.launch {
+            _resultMealNightDinner.value = UIState.Fat(getAllMealNightDinnerUseCase.executeFat())
+        }
+    }
+
+    fun getCarbohydratesNightDinner() {
+        viewModelScope.launch {
+            _resultMealNightDinner.value =
+                UIState.Carbohydrates(getAllMealNightDinnerUseCase.executeCarbohydrates())
+        }
+    }
+
+    fun getCaloriesNightDinner() {
+        viewModelScope.launch {
+            _resultMealNightDinner.value = UIState.Calories(getAllMealNightDinnerUseCase.executeCalories())
         }
     }
 }

@@ -46,7 +46,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                 }
             }
         }
-        loadFavourites()
+        goToFavourites()
     }
 
     private fun loadFood(query: String) {
@@ -73,7 +73,7 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
             .commit()
     }
 
-    private fun loadFavourites() {
+    private fun goToFavourites() {
         binding?.run {
             btnGoToFavourite.setOnClickListener {
                 val bundle = Bundle()

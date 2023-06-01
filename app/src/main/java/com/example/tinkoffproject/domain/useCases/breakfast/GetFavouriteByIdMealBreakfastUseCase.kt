@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class GetFavouriteByIdMealBreakfastUseCase @Inject constructor(
     private val mealBreakfastRepository: MealBreakfastRepository
-){
-    suspend fun execute(id:Double):MealBreakfast{
+) {
+    suspend fun execute(id: Double): MealBreakfast {
         return mealBreakfastRepository.getFavouriteById(id)
     }
 }
