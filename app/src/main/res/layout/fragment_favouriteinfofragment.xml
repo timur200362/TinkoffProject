@@ -25,35 +25,37 @@
             android:id="@+id/tv_foodName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/productName"
             android:textColor="@color/black"
             android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_heading"
+            app:layout_constraintStart_toStartOf="@+id/tv_heading"
             app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
 
         <TextView
             android:id="@+id/tv_foodNameInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
+            android:layout_marginTop="3dp"
             android:textColor="@color/black"
             android:textSize="17sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_foodName"
-            app:layout_constraintTop_toTopOf="@+id/tv_foodName" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_foodName"
+            app:layout_constraintStart_toStartOf="@+id/tv_foodName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_foodName" />
 
         <TextView
             android:id="@+id/tv_microElements"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:text="@string/microElements"
             android:textColor="@color/black"
+            android:layout_marginTop="3dp"
             android:textSize="19sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_foodName" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_foodName"
+            app:layout_constraintStart_toStartOf="@+id/tv_foodName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_foodNameInput" />
 
         <TextView
             android:id="@+id/tv_calcium"
@@ -307,7 +309,7 @@
 
         <ImageButton
             android:id="@+id/btn_badges"
-            android:layout_width="390dp"
+            android:layout_width="370dp"
             android:layout_height="200dp"
             android:background="@drawable/circle_white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -316,8 +318,8 @@
 
         <TextView
             android:id="@+id/tv_badgesInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="355dp"
+            android:layout_height="185dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_badges"
             app:layout_constraintEnd_toEndOf="@+id/btn_badges"
             app:layout_constraintStart_toStartOf="@+id/btn_badges"
@@ -336,7 +338,7 @@
 
         <ImageButton
             android:id="@+id/btn_ingredients"
-            android:layout_width="390dp"
+            android:layout_width="370dp"
             android:layout_height="200dp"
             android:background="@drawable/circle_white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -345,8 +347,8 @@
 
         <TextView
             android:id="@+id/tv_ingredientsInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="355dp"
+            android:layout_height="185dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_ingredients"
             app:layout_constraintEnd_toEndOf="@+id/btn_ingredients"
             app:layout_constraintStart_toStartOf="@+id/btn_ingredients"

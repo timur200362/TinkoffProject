@@ -13,8 +13,9 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:text="Статистика"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,38 +25,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:text="Завтрак"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/graphics_spinner" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartBreakfast"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/graphics_spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_breakfast" />
+        <TextView
+            android:id="@+id/tv_dinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:text="Обед"
+            app:layout_constraintEnd_toEndOf="@+id/chartBreakfast"
+            app:layout_constraintStart_toStartOf="@+id/chartBreakfast"
+            app:layout_constraintTop_toBottomOf="@+id/chartBreakfast" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartDinner"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/chartBreakfast"
             app:layout_constraintStart_toStartOf="@+id/chartBreakfast"
-            app:layout_constraintTop_toBottomOf="@+id/chartBreakfast" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_dinner" />
+        <TextView
+            android:id="@+id/tv_nightDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:text="Ужин"
+            app:layout_constraintEnd_toEndOf="@+id/chartDinner"
+            app:layout_constraintStart_toStartOf="@+id/chartDinner"
+            app:layout_constraintTop_toBottomOf="@+id/chartDinner" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartNightDinner"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/chartDinner"
             app:layout_constraintStart_toStartOf="@+id/chartDinner"
-            app:layout_constraintTop_toBottomOf="@+id/chartDinner" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nightDinner" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
