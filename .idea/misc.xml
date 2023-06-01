@@ -3,27 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.292" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle.xml" value="0.444" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle2.xml" value="0.365" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle_grey.xml" value="0.365" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/circle_white.xml" value="0.392" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_account_box_16.xml" value="0.3745" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_add_circle_outline_16.xml" value="0.444" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_circle_16.xml" value="0.365" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.392" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_baseline_statistic_16.xml" value="0.3745" />
-        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_launcher_backgroundNewIcon.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/drawable/ic_launcher_newicon_background.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_breakfastsearch.xml" value="0.5" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_diet.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_dinnerinfo.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_dinnersearch.xml" value="0.4505208333333333" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_favouriteinfodinner.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_favouriteinfofragment.xml" value="0.553125" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_favourites.xml" value="0.4390625" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_foodinfo.xml" value="0.4537037037037037" />
-        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_mainpage.xml" value="0.33" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_mainpage.xml" value="0.5" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_nightdinnerinfo.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_nightdinnersearch.xml" value="0.44947916666666665" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_settings.xml" value="0.553125" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_snackssearch.xml" value="0.44947916666666665" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_statistics.xml" value="0.33" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/fragment_testroom.xml" value="0.365625" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/item_favourites.xml" value="0.4390625" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/layout/item_food.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/menu/menu_main.xml" value="0.415625" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launcherNewIcon.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launcherNewIcon_round.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launchernewIcon_round.xml" value="0.292" />
+        <entry key="..\:/Users/kh-g-/AndroidStudioProjects/TinkoffProject/app/src/main/res/mipmap-anydpi-v26/ic_launchernewicon.xml" value="0.292" />
       </map>
     </option>
   </component>

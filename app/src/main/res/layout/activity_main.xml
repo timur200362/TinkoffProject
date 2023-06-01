@@ -19,7 +19,7 @@
         android:id="@+id/bnv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
+        android:background="@color/purple_500"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:labelVisibilityMode="labeled"

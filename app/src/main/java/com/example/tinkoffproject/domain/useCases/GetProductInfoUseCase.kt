@@ -1,51 +1,28 @@
 package com.example.tinkoffproject.domain.useCases
 
-import com.example.tinkoffproject.data.repository.LoadFoodInfoRepository
+import com.example.tinkoffproject.data.repository.FoodRepository
+import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import javax.inject.Inject
 
-class GetProductTitleUseCase @Inject constructor(
-    private val loadFoodInfoRepository: LoadFoodInfoRepository
+class GetProductInfoUseCase @Inject constructor(
+    private val foodRepository: FoodRepository
 ) {
     suspend fun execute(foodId: Int): ProductFilter {
-        loadFoodInfoRepository.getFoodInfo(foodId).run {
+        foodRepository.getFoodInfo(foodId).run {
             return ProductFilter(
+                id,
                 title,
-                calcium = nutrition.nutrients.find { it.name=="Calcium" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                cholesterol = nutrition.nutrients.find { it.name=="Cholesterol" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                fat = nutrition.nutrients.find { it.name=="Fat" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                protein = nutrition.nutrients.find { it.name=="Protein" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                carbohydrates = nutrition.nutrients.find { it.name=="Carbohydrates" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                calories = nutrition.nutrients.find { it.name=="Calories" }?.let {
-                    it.amount.toString() + it.unit
-                },
-                sugar = nutrition.nutrients.find { it.name=="Sugar" }?.let {
-                    it.amount.toString() + it.unit
-                },
+                calcium = nutrition.nutrients.find { it.name == "Calcium" }?.amount?.toString(),
+                cholesterol = nutrition.nutrients.find { it.name == "Cholesterol" }?.amount?.toString(),
+                fat = nutrition.nutrients.find { it.name == "Fat" }?.amount?.toString(),
+                protein = nutrition.nutrients.find { it.name == "Protein" }?.amount?.toString(),
+                carbohydrates = nutrition.nutrients.find { it.name == "Carbohydrates" }?.amount?.toString(),
+                calories = nutrition.nutrients.find { it.name == "Calories" }?.amount?.toString(),
+                sugar = nutrition.nutrients.find { it.name == "Sugar" }?.amount?.toString(),
                 importantBadges,
-                ingredientList
+                ingredientList,
+                image
             )
         }
     }
 }
-data class ProductFilter(
-    val title:String,
-    val calcium:String?,
-    val cholesterol:String?,
-    val fat:String?,
-    val protein:String?,
-    val carbohydrates:String?,
-    val calories:String?,
-    val sugar:String?,
-    val importantBadges: List<String>,
-    val ingredientList: String
-)
