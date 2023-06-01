@@ -401,6 +401,7 @@
             app:layout_constraintStart_toStartOf="@+id/img_dinnerEvening"
             app:layout_constraintTop_toBottomOf="@+id/img_dinnerEvening"
             app:layout_constraintEnd_toEndOf="@+id/iv_addDinnerEvening" />
+
         <TextView
             android:id="@+id/tv_proteinNightDinner"
             android:layout_width="wrap_content"

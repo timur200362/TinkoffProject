@@ -1,6 +1,5 @@
 package com.example.tinkoffproject.presentation.mainPagePackage.fragments.breakfast.food
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -51,12 +50,16 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
     }
 
     private fun loadFood(query: String) {
-        viewModel.getApi(query)
-        viewModel.resultApi.observe(viewLifecycleOwner) {
-            binding?.foodList?.adapter =
-                FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
-                    loadFoodInfo(product.id)
-                }
+        try {
+            viewModel.getApi(query)
+            viewModel.resultApi.observe(viewLifecycleOwner) {
+                binding?.foodList?.adapter =
+                    FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
+                        loadFoodInfo(product.id)
+                    }
+            }
+        } catch (error: Throwable) {
+            Toast.makeText(context, error.message ?: "Error", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentFavouritesBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.MainPageFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite.model.FavouriteDinnerAdapter
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.food.DinnerSearchFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.mvvm.FavouritesDinnerViewModel

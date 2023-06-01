@@ -16,7 +16,6 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -25,7 +24,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
     @Inject
     lateinit var mealDatabase: MealDatabase
-    private val lineChartXAxisValueFormatter=LineChartXAxisValueFormatter()
+    private val lineChartXAxisValueFormatter = LineChartXAxisValueFormatter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,21 +40,21 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             lifecycleScope.launch {
                 val meals = mealDatabase.mealDao().getAll()
                 val entries = meals.map { meal ->
-                    Entry(meal.date.time.toFloat(),meal.calories.toFloat())
+                    Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartBreakfast.data = LineData(LineDataSet(entries, "Калории"))
                 chartBreakfast.invalidate()
 
-                val mealsDinner=mealDatabase.mealDao().getAllDinner()
+                val mealsDinner = mealDatabase.mealDao().getAllDinner()
                 val entriesDinner = mealsDinner.map { meal ->
-                    Entry(meal.date.time.toFloat(),meal.calories.toFloat())
+                    Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartDinner.data = LineData(LineDataSet(entriesDinner, "Калории"))
                 chartDinner.invalidate()
 
-                val mealsNightDinner=mealDatabase.mealDao().getAllNightDinner()
+                val mealsNightDinner = mealDatabase.mealDao().getAllNightDinner()
                 val entriesNightDinner = mealsNightDinner.map { meal ->
-                    Entry(meal.date.time.toFloat(),meal.calories.toFloat())
+                    Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartNightDinner.data = LineData(LineDataSet(entriesNightDinner, "Калории"))
                 chartNightDinner.invalidate()

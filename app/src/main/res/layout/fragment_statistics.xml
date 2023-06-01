@@ -6,8 +6,9 @@
     android:background="@color/yellow">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/graphics_spinner"/>
+            app:layout_constraintTop_toBottomOf="@id/graphics_spinner" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartDinner"
@@ -46,6 +47,7 @@
             app:layout_constraintEnd_toEndOf="@+id/chartBreakfast"
             app:layout_constraintStart_toStartOf="@+id/chartBreakfast"
             app:layout_constraintTop_toBottomOf="@+id/chartBreakfast" />
+
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartNightDinner"
             android:layout_width="350dp"

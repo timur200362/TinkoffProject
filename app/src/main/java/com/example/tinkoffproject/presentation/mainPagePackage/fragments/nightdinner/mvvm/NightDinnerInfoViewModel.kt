@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.tinkoffproject.data.database.mealDatabase.MealNightDinner
 import com.example.tinkoffproject.data.response.productInformation.ProductFilter
 import com.example.tinkoffproject.domain.useCases.GetProductInfoUseCase
-import com.example.tinkoffproject.domain.useCases.dinner.UpdateFavouriteMealDinnerUseCase
 import com.example.tinkoffproject.domain.useCases.nightDinner.AddMealNightDinnerUseCase
 import com.example.tinkoffproject.domain.useCases.nightDinner.UpdateFavouriteMealNightDinnerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

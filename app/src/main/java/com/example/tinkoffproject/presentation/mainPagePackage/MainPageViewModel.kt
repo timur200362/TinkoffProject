@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainPageViewModel @Inject constructor(
-    private val getAllMealBreakfastUseCase:GetAllMealBreakfastUseCase,
+    private val getAllMealBreakfastUseCase: GetAllMealBreakfastUseCase,
     private val getAllMealDinnerUseCase: GetAllMealDinnerUseCase,
     private val getAllMealNightDinnerUseCase: GetAllMealNightDinnerUseCase,
 ) : ViewModel() {
@@ -82,7 +82,8 @@ class MainPageViewModel @Inject constructor(
 
     fun getProteinNightDinner() {
         viewModelScope.launch {
-            _resultMealNightDinner.value = UIState.Protein(getAllMealNightDinnerUseCase.executeProtein())
+            _resultMealNightDinner.value =
+                UIState.Protein(getAllMealNightDinnerUseCase.executeProtein())
         }
     }
 
@@ -101,7 +102,8 @@ class MainPageViewModel @Inject constructor(
 
     fun getCaloriesNightDinner() {
         viewModelScope.launch {
-            _resultMealNightDinner.value = UIState.Calories(getAllMealNightDinnerUseCase.executeCalories())
+            _resultMealNightDinner.value =
+                UIState.Calories(getAllMealNightDinnerUseCase.executeCalories())
         }
     }
 }

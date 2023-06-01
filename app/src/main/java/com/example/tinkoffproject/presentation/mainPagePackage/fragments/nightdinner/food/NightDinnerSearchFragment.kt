@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tinkoffproject.R
 import com.example.tinkoffproject.databinding.FragmentNightdinnersearchBinding
-import com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner.favourite.FavouritesDinnerFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.favourite.FavouritesNightDinnerFragment
 import com.example.tinkoffproject.presentation.mainPagePackage.fragments.nightdinner.mvvm.NightDinnerSearchViewModel
 import com.example.tinkoffproject.presentation.mainPagePackage.model.FoodAdapter
