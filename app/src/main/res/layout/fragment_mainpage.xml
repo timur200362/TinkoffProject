@@ -44,10 +44,10 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_totalDrunk"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="15dp"
-            android:src="@drawable/water"
+            android:src="@drawable/glass"
             app:layout_constraintBottom_toBottomOf="@+id/btn_water"
             app:layout_constraintStart_toStartOf="@+id/btn_water"
             app:layout_constraintTop_toTopOf="@+id/btn_water" />
@@ -105,7 +105,7 @@
             android:layout_height="55dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="7dp"
-            android:src="@drawable/breakfast"
+            android:src="@drawable/bibimbap"
             app:layout_constraintStart_toStartOf="@+id/btn_breakfast"
             app:layout_constraintTop_toTopOf="@+id/btn_breakfast" />
 
@@ -113,8 +113,9 @@
             android:id="@+id/tv_breakfast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:text="@string/breakfast"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/img_breakfast"
             app:layout_constraintStart_toEndOf="@+id/img_totalDrunk"
@@ -236,7 +237,7 @@
             android:layout_height="55dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="7dp"
-            android:src="@drawable/breakfast"
+            android:src="@drawable/dinner"
             app:layout_constraintStart_toStartOf="@+id/btn_dinnerDay"
             app:layout_constraintTop_toTopOf="@+id/btn_dinnerDay" />
 
@@ -247,6 +248,7 @@
             android:textColor="@color/black"
             android:text="@string/dinner1"
             android:textSize="18sp"
+            android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/img_dinnerDay"
             app:layout_constraintStart_toEndOf="@+id/img_totalDrunk"
             app:layout_constraintTop_toTopOf="@+id/img_dinnerDay" />
@@ -367,7 +369,7 @@
             android:layout_height="55dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="7dp"
-            android:src="@drawable/breakfast"
+            android:src="@drawable/steak"
             app:layout_constraintStart_toStartOf="@+id/btn_dinnerEvening"
             app:layout_constraintTop_toTopOf="@+id/btn_dinnerEvening" />
 
@@ -378,6 +380,7 @@
             android:textColor="@color/black"
             android:text="@string/dinner2"
             android:textSize="18sp"
+            android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/img_dinnerEvening"
             app:layout_constraintStart_toEndOf="@+id/img_totalDrunk"
             app:layout_constraintTop_toTopOf="@+id/img_dinnerEvening" />
