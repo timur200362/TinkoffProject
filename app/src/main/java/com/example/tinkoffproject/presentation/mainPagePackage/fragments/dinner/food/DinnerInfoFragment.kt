@@ -2,6 +2,7 @@ package com.example.tinkoffproject.presentation.mainPagePackage.fragments.dinner
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffproject.R
@@ -36,6 +37,9 @@ class DinnerInfoFragment : Fragment(R.layout.fragment_dinnerinfo) {
             btnMakeFavourite.setOnClickListener {
                 addFavourite()
             }
+        }
+        viewModel.error.observe(viewLifecycleOwner){
+            Toast.makeText(context,it, Toast.LENGTH_SHORT).show()
         }
     }
 

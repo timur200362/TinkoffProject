@@ -21,10 +21,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     private lateinit var binding: FragmentStatisticsBinding
-
     @Inject
     lateinit var mealDatabase: MealDatabase
-    private val lineChartXAxisValueFormatter = LineChartXAxisValueFormatter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +41,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                     Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartBreakfast.data = LineData(LineDataSet(entries, "Калории"))
+                val axis= chartBreakfast.xAxis
+                axis.valueFormatter=LineChartXAxisValueFormatter()
                 chartBreakfast.invalidate()
 
                 val mealsDinner = mealDatabase.mealDao().getAllDinner()
@@ -50,6 +50,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                     Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartDinner.data = LineData(LineDataSet(entriesDinner, "Калории"))
+                val axisDinner = chartDinner.xAxis
+                axisDinner.valueFormatter=LineChartXAxisValueFormatter()
                 chartDinner.invalidate()
 
                 val mealsNightDinner = mealDatabase.mealDao().getAllNightDinner()
@@ -57,6 +59,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                     Entry(meal.date.time.toFloat(), meal.calories.toFloat())
                 }
                 chartNightDinner.data = LineData(LineDataSet(entriesNightDinner, "Калории"))
+                val axisNightDinner = chartNightDinner.xAxis
+                axisNightDinner.valueFormatter=LineChartXAxisValueFormatter()
                 chartNightDinner.invalidate()
             }
         }

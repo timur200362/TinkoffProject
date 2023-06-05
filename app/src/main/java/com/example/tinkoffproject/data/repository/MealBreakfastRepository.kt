@@ -17,4 +17,5 @@ class MealBreakfastRepository @Inject constructor(
 
     suspend fun getFavourite() = mealDatabase.mealDao().getFavourite()
     suspend fun getFavouriteById(id: Double) = mealDatabase.mealDao().getFavouriteById(id)
+    //suspend fun dateFilter(fromDate: Long, toDate:Long)=mealDatabase.mealDao().dateFiler(fromDate,toDate)
 }

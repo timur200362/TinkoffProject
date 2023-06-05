@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+//import com.example.tinkoffproject.domain.useCases.DateFilterUseCase
 import com.example.tinkoffproject.domain.useCases.breakfast.GetAllMealBreakfastUseCase
 import com.example.tinkoffproject.domain.useCases.dinner.GetAllMealDinnerUseCase
 import com.example.tinkoffproject.domain.useCases.nightDinner.GetAllMealNightDinnerUseCase
@@ -16,6 +17,7 @@ class MainPageViewModel @Inject constructor(
     private val getAllMealBreakfastUseCase: GetAllMealBreakfastUseCase,
     private val getAllMealDinnerUseCase: GetAllMealDinnerUseCase,
     private val getAllMealNightDinnerUseCase: GetAllMealNightDinnerUseCase,
+    //private val dateFilterUseCase: DateFilterUseCase
 ) : ViewModel() {
 
     private val _resultMeal = MutableLiveData<UIState>()
@@ -106,4 +108,9 @@ class MainPageViewModel @Inject constructor(
                 UIState.Calories(getAllMealNightDinnerUseCase.executeCalories())
         }
     }
+//    fun dateFilter(fromDate: Long, toDate:Long){
+//        viewModelScope.launch {
+//            dateFilterUseCase.execute(fromDate, toDate)
+//        }
+//    }
 }

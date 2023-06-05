@@ -31,33 +31,29 @@ class NightDinnerSearchFragment : Fragment(R.layout.fragment_nightdinnersearch) 
         arguments?.getString("foodName")?.let {
         }
         binding?.run {
-            try {
-                etFood.setOnEditorActionListener { _, actionId, _ ->
-                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        loadFood(etFood.text.toString())
-                        true
-                    } else {
-                        false
-                    }
-                }
-            } catch (ex: Exception) {
-                if (context != null) {
-                    Toast.makeText(context, "Введено некорректное название", Toast.LENGTH_SHORT)
-                        .show()
+            etFood.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    loadFood(etFood.text.toString())
+                    true
+                } else {
+                    false
                 }
             }
         }
-        goToFavourites()
-    }
-
-    private fun loadFood(query: String) {
-        viewModel.getApi(query)
         viewModel.resultApi.observe(viewLifecycleOwner) {
             binding?.foodList?.adapter =
                 FoodAdapter(it, Glide.with(this)) { product ->
                     loadFoodInfo(product.id)
                 }
         }
+        viewModel.error.observe(viewLifecycleOwner){
+            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+        }
+        goToFavourites()
+    }
+
+    private fun loadFood(query: String) {
+        viewModel.getApi(query)
     }
 
 

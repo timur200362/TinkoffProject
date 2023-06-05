@@ -3,6 +3,7 @@ package com.example.tinkoffproject.data.database.mealDatabase
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import java.util.*
 
 @Dao
 interface MealDAO {
@@ -21,6 +22,9 @@ interface MealDAO {
 
     @Query("SELECT * FROM MealBreakfast WHERE foodId=:id")
     suspend fun getFavouriteById(id: Double): MealBreakfast
+
+//    @Query("SELECT * from MealBreakfast WHERE DATE(date)>=DATE(:fromDate) AND DATE(date)>=DATE(:toDate)")
+//    suspend fun dateFiler(fromDate: Long, toDate:Long)
 
     //Dinner
     @Insert

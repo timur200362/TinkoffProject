@@ -23,10 +23,18 @@ class NightDinnerInfoViewModel @Inject constructor(
     private val _resultApi = MutableLiveData<ProductFilter>()
     val resultApi: LiveData<ProductFilter>
         get() = _resultApi
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String>
+        get() = _error
 
     fun getProductInfo(foodId: Int) {
         viewModelScope.launch {
-            _resultApi.value = getProductInfoUseCase.execute(foodId)
+            try {
+                _resultApi.value = getProductInfoUseCase.execute(foodId)
+            }
+            catch (throwable: Throwable){
+                _error.value="Нет подключения к интернету!"
+            }
         }
     }
 

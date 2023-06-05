@@ -30,7 +30,6 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
         arguments?.getString("foodName")?.let {
         }
         binding?.run {
-            try {
                 etFood.setOnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                         loadFood(etFood.text.toString())
@@ -39,28 +38,21 @@ class BreakfastSearchFragment : Fragment(R.layout.fragment_breakfastsearch) {
                         false
                     }
                 }
-            } catch (ex: Exception) {
-                if (context != null) {
-                    Toast.makeText(context, "Введено некорректное название", Toast.LENGTH_SHORT)
-                        .show()
+        }
+        viewModel.resultApi.observe(viewLifecycleOwner) {
+            binding?.foodList?.adapter =
+                FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
+                    loadFoodInfo(product.id)
                 }
-            }
+        }
+        viewModel.error.observe(viewLifecycleOwner){
+            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
         }
         goToFavourites()
     }
 
     private fun loadFood(query: String) {
-        try {
-            viewModel.getApi(query)
-            viewModel.resultApi.observe(viewLifecycleOwner) {
-                binding?.foodList?.adapter =
-                    FoodAdapter(it, Glide.with(this@BreakfastSearchFragment)) { product ->
-                        loadFoodInfo(product.id)
-                    }
-            }
-        } catch (error: Throwable) {
-            Toast.makeText(context, error.message ?: "Error", Toast.LENGTH_SHORT).show()
-        }
+        viewModel.getApi(query)
     }
 
 
